@@ -14,12 +14,14 @@ const { title, description } = Astro.props;
 const siteLabel = site.lab_name || site.site_name || 'Zhoulyu Rao Research Group';
 const pageTitle = title ? `${title} | ${siteLabel}` : siteLabel;
 const pageDescription = description || `Research group of Prof. Zhoulyu Rao, ${site.department}, ${site.institution}.`;
-const canonical = new URL(Astro.url.pathname, site.site_url).toString();
+const deploymentSite = Astro.site || new URL(site.site_url);
+const canonical = new URL(Astro.url.pathname, deploymentSite).toString();
+const organizationUrl = new URL(import.meta.env.BASE_URL, deploymentSite).toString();
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: siteLabel,
-  url: site.site_url,
+  url: organizationUrl,
   parentOrganization: { '@type': 'CollegeOrUniversity', name: site.institution, url: site.institution_url },
   department: site.department
 };

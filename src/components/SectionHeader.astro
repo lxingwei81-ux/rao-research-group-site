@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../lib/paths';
+
 interface Props {
   eyebrow?: string;
   title: string;
@@ -15,5 +17,5 @@ const { eyebrow, title, description, href, linkLabel = 'View all' } = Astro.prop
     <h2>{title}</h2>
     {description && <p>{description}</p>}
   </div>
-  {href && <a class="text-link" href={href}>{linkLabel} <span aria-hidden="true">→</span></a>}
+  {href && <a class="text-link" href={withBase(href)}>{linkLabel} <span aria-hidden="true">→</span></a>}
 </div>

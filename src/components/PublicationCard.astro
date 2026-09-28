@@ -1,12 +1,13 @@
 ---
 import { publicationCitation, type Publication } from '../lib/data';
+import { withBase } from '../lib/paths';
 interface Props { publication: Publication; compact?: boolean; }
 const { publication, compact = false } = Astro.props;
 const destination = publication.url || (publication.doi ? `https://doi.org/${publication.doi}` : undefined);
 ---
 
 <article id={publication.id} class:list={['publication-card', { 'publication-card--compact': compact }]} data-publication data-year={publication.year} data-area={publication.research_area || ''} data-search={`${publication.title} ${publication.authors} ${publication.journal}`.toLowerCase()}>
-  {publication.cover_image && !compact && <div class="publication-card__image"><img src={publication.cover_image} alt="" loading="lazy" /></div>}
+  {publication.cover_image && !compact && <div class="publication-card__image"><img src={withBase(publication.cover_image)} alt="" loading="lazy" /></div>}
   <div class="publication-card__body">
     <p class="publication-card__meta">{publication.year} {publication.research_area && <span>· {publication.research_area}</span>}</p>
     <h3>{destination ? <a href={destination}>{publication.title}</a> : publication.title}</h3>

@@ -1,10 +1,12 @@
 ---
+import { withBase } from '../lib/paths';
+
 interface Props { person: any; }
 const { person } = Astro.props;
 ---
 
 <article class="person-card reveal">
-  {person.data.photo && <img class="person-card__image" src={person.data.photo} alt={`Portrait of ${person.data.name}`} loading="lazy" />}
+  {person.data.photo && <img class="person-card__image" src={withBase(person.data.photo)} alt={`Portrait of ${person.data.name}`} loading="lazy" />}
   <div class="person-card__body">
     <p class="eyebrow">{person.data.role}</p>
     <h3>{person.data.name}</h3>

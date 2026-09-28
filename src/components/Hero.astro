@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../lib/paths';
+
 interface Props {
   title?: string;
   description?: string;
@@ -18,13 +20,13 @@ const visibleDescription = description || (isDraft ? '[CONTENT NEEDED: LAB DESCR
       {visibleTitle && <h1>{visibleTitle}</h1>}
       {visibleDescription && <p class:list={['hero__description', { 'draft-copy': !title || !description }]}>{visibleDescription}</p>}
       <div class="hero__actions">
-        <a class="button button--primary" href="/research/">Explore Research <span aria-hidden="true">→</span></a>
-        <a class="button button--quiet" href="/join-us/">Join Us <span aria-hidden="true">→</span></a>
+        <a class="button button--primary" href={withBase('/research/')}>Explore Research <span aria-hidden="true">→</span></a>
+        <a class="button button--quiet" href={withBase('/join-us/')}>Join Us <span aria-hidden="true">→</span></a>
       </div>
     </div>
     {image ? (
       <figure class="hero__figure reveal">
-        <img src={image} alt="Scientific image from the group's previous research" />
+        <img src={withBase(image)} alt="Scientific image from the group's previous research" />
       </figure>
     ) : isDraft ? <div class="hero__image-placeholder">[IMAGE NEEDED: HERO RESEARCH IMAGE]</div> : null}
   </div>

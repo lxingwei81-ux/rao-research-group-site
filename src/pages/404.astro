@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/paths';
 ---
 
 <BaseLayout title="Page not found">
-  <section class="page-intro"><div class="container"><p class="eyebrow">404</p><h1>This page is not available.</h1><p><a class="button button--primary" href="/">Return home <span aria-hidden="true">→</span></a></p></div></section>
+  <section class="page-intro"><div class="container"><p class="eyebrow">404</p><h1>This page is not available.</h1><p><a class="button button--primary" href={withBase('/')}>Return home <span aria-hidden="true">→</span></a></p></div></section>
 </BaseLayout>

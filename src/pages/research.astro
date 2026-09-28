@@ -5,6 +5,7 @@ import ResearchCard from '../components/ResearchCard.astro';
 import PublicationCard from '../components/PublicationCard.astro';
 import CTA from '../components/CTA.astro';
 import { publications } from '../lib/data';
+import { withBase } from '../lib/paths';
 
 const research = (await getCollection('research')).filter((item) => item.data.published).sort((a, b) => a.data.order - b.data.order);
 const publicationById = new Map(publications.map((publication) => [publication.id, publication]));
@@ -24,14 +25,14 @@ const publicationById = new Map(publications.map((publication) => [publication.i
         <div>
           <p class="eyebrow">{item.data.title}</p>
           <h2>{item.data.short_description}</h2>
-          {item.data.image && <figure class="research-detail__media"><img src={item.data.image} alt="" /></figure>}
+          {item.data.image && <figure class="research-detail__media"><img src={withBase(item.data.image)} alt="" /></figure>}
         </div>
         <div class="research-detail__content">
           <div class="research-detail__step"><h3>Scientific question</h3><p>{item.data.question}</p></div>
           <div class="research-detail__step"><h3>Approach</h3><p>{item.data.approach}</p></div>
           <div class="research-detail__step"><h3>Materials / devices</h3><p>{item.data.materials_devices}</p></div>
           <div class="research-detail__step"><h3>Application</h3><p>{item.data.application}</p></div>
-          {representativePublications.length > 0 && <div class="research-detail__step"><h3>Representative publications</h3><ul class="research-detail__publications">{representativePublications.map((publication: any) => <li><a href={`/publications/#${publication.id}`}>{publication.title}</a> <span>({publication.year})</span></li>)}</ul></div>}
+          {representativePublications.length > 0 && <div class="research-detail__step"><h3>Representative publications</h3><ul class="research-detail__publications">{representativePublications.map((publication: any) => <li><a href={withBase(`/publications/#${publication.id}`)}>{publication.title}</a> <span>({publication.year})</span></li>)}</ul></div>}
         </div>
       </article>;
     })}
