@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PersonCard from '../components/PersonCard.astro';
+import CTA from '../components/CTA.astro';
+
+const groupOrder = ['Principal Investigator', 'Postdoctoral Fellows', 'PhD Students', 'Research Staff', 'Visiting Researchers', 'Alumni'];
+const people = (await getCollection('people')).filter((person) => person.data.published).sort((a, b) => a.data.order - b.data.order);
+const groupedPeople = groupOrder.map((group) => ({ group, people: people.filter((person) => person.data.group === group) })).filter((item) => item.people.length > 0);
+---
+
+<BaseLayout title="People" description="People in the Rao Research Group.">
+  <section class="page-intro"><div class="container"><p class="eyebrow">People</p><h1>Our research community.</h1><p>Group members are managed as individual Markdown records, allowing new profiles to be added without changing site code.</p></div></section>
+  <section class="section"><div class="container">
+    {groupedPeople.map((section) => <section class="people-group"><h2 class="people-group__title">{section.group}</h2><div class="people-grid">{section.people.map((person) => <PersonCard person={person} />)}</div></section>)}
+  </div></section>
+  <div class="container section section--compact"><CTA /></div>
+</BaseLayout>

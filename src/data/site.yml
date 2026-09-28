@@ -1,0 +1,22 @@
+site_name: "Rao Research Group"
+lab_name: ""
+lab_tagline: "Electronic materials and devices for biological systems."
+lab_description: "We develop innovative bio-integrated electronic systems for biomedical applications, spanning flexible and stretchable electronics, bioelectronics and optoelectronics."
+site_url: "https://zhoulyu.com"
+department: "Department of Chemistry"
+institution: "City University of Hong Kong"
+institution_url: "https://www.cityu.edu.hk/"
+department_url: ""
+official_logo: ""
+contact_email: ""
+address: ""
+social_links: []
+footer_links:
+  - label: Privacy Policy
+    url: https://www.cityu.edu.hk/web/privacy
+  - label: Copyright
+    url: https://www.cityu.edu.hk/web/copyright
+  - label: Disclaimer
+    url: https://www.cityu.edu.hk/web/disclaimer
+  - label: Accessibility
+    url: https://www.cityu.edu.hk/web/accessibility

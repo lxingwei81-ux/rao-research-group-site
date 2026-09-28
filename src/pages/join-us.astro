@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { positions } from '../lib/data';
+---
+
+<BaseLayout title="Join Us" description="Opportunities with the Rao Research Group.">
+  <section class="page-intro"><div class="container"><p class="eyebrow">Join Us</p><h1>Work on questions where materials meet biology.</h1><p>Published opportunities are maintained in a dedicated YAML file and can be updated through Pages CMS.</p></div></section>
+  <section class="section section--muted"><div class="container">
+    {positions.length > 0 ? <div class="featured-list">{positions.map((position) => <article class="publication-card publication-card--compact"><div class="publication-card__body"><p class="publication-card__meta">{position.status}</p><h2>{position.position}</h2>{position.intro && <p>{position.intro}</p>}{position.description && <p>{position.description}</p>}{position.requirements && <p><strong>Requirements:</strong> {position.requirements}</p>}{position.application_method && <p><strong>How to apply:</strong> {position.application_method}</p>}{position.contact_email && <a class="text-link" href={`mailto:${position.contact_email}`}>Contact <span aria-hidden="true">→</span></a>}</div></article>)}</div> : <p class="empty-state">There are no published opportunities at this time.</p>}
+  </div></section>
+</BaseLayout>

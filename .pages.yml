@@ -1,0 +1,252 @@
+media:
+  input: public/uploads
+  output: /uploads
+
+content:
+  - name: site_settings
+    label: Site settings
+    type: file
+    path: src/data/site.yml
+    format: yaml
+    fields:
+      - name: site_name
+        label: Site name
+        type: string
+      - name: lab_name
+        label: Official lab name
+        type: string
+      - name: lab_tagline
+        label: Homepage tagline
+        type: string
+      - name: lab_description
+        label: Homepage description
+        type: text
+      - name: site_url
+        label: Canonical site URL
+        type: string
+        required: true
+      - name: department
+        label: Department
+        type: string
+        required: true
+      - name: institution
+        label: Institution
+        type: string
+        required: true
+      - name: institution_url
+        label: Institution URL
+        type: string
+        required: true
+      - name: department_url
+        label: Department URL
+        type: string
+      - name: official_logo
+        label: Approved CityUHK logo asset
+        type: image
+      - name: contact_email
+        label: Contact email
+        type: string
+      - name: address
+        label: Postal address
+        type: text
+
+  - name: research
+    label: Research themes
+    type: collection
+    path: src/content/research
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: title
+      sort: order
+      order: asc
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: short_description
+        label: Short description
+        type: text
+        required: true
+      - name: image
+        type: image
+      - name: question
+        label: Scientific question
+        type: text
+        required: true
+      - name: approach
+        type: text
+        required: true
+      - name: materials_devices
+        label: Materials / devices
+        type: text
+        required: true
+      - name: application
+        type: text
+        required: true
+      - name: representative_publications
+        label: Representative publication IDs
+        type: string
+        list: true
+      - name: published
+        type: boolean
+        default: false
+      - name: order
+        type: number
+        default: 99
+      - name: body
+        type: rich-text
+
+  - name: publications
+    label: Publications
+    type: file
+    path: src/data/publications.yml
+    format: yaml
+    list: true
+    fields:
+      - name: id
+        label: Publication ID
+        type: string
+        required: true
+      - name: title
+        type: string
+        required: true
+      - name: authors
+        type: text
+        required: true
+      - name: journal
+        type: string
+        required: true
+      - name: year
+        type: number
+        required: true
+      - name: volume
+        type: string
+      - name: pages
+        type: string
+      - name: doi
+        type: string
+      - name: url
+        label: Publisher URL
+        type: string
+      - name: featured
+        type: boolean
+        default: false
+      - name: research_area
+        label: Research area
+        type: string
+      - name: cover_image
+        type: image
+      - name: equal_contribution_note
+        type: string
+
+  - name: people
+    label: People
+    type: collection
+    path: src/content/people
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: name
+      sort: order
+      order: asc
+    fields:
+      - name: name
+        type: string
+        required: true
+      - name: role
+        type: string
+        required: true
+      - name: group
+        type: select
+        options: [Principal Investigator, Postdoctoral Fellows, PhD Students, Research Staff, Visiting Researchers, Alumni]
+        required: true
+      - name: photo
+        type: image
+      - name: bio
+        type: text
+      - name: education
+        type: string
+        list: true
+      - name: research_interest
+        label: Research interests
+        type: text
+      - name: email
+        type: string
+      - name: personal_url
+        label: Personal URL
+        type: string
+      - name: order
+        type: number
+        default: 99
+      - name: published
+        type: boolean
+        default: false
+      - name: body
+        type: rich-text
+
+  - name: news
+    label: News
+    type: collection
+    path: src/content/news
+    format: yaml-frontmatter
+    filename:
+      template: "{year}-{month}-{day}-{primary}.md"
+      field: date
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: date
+        type: date
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: image
+        type: image
+      - name: external_url
+        label: External URL
+        type: string
+      - name: featured
+        type: boolean
+        default: false
+      - name: published
+        type: boolean
+        default: false
+      - name: body
+        type: rich-text
+
+  - name: positions
+    label: Positions
+    type: file
+    path: src/data/positions.yml
+    format: yaml
+    list: true
+    fields:
+      - name: intro
+        type: text
+      - name: position
+        type: string
+        required: true
+      - name: description
+        type: text
+      - name: requirements
+        type: text
+      - name: status
+        type: string
+      - name: application_method
+        type: text
+      - name: contact_email
+        type: string
+      - name: published
+        type: boolean
+        default: false
+
+settings:
+  content:
+    merge: true

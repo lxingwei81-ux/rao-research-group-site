@@ -1,0 +1,19 @@
+---
+interface Props {
+  item: any;
+}
+const { item } = Astro.props;
+---
+
+<article class="featured-research reveal">
+  {item.data.image && <div class="featured-research__image"><img src={item.data.image} alt="" /></div>}
+  <div class="featured-research__body">
+    <p class="eyebrow">Featured research</p>
+    <h3>{item.data.title}</h3>
+    <dl>
+      <div><dt>Scientific question</dt><dd>{item.data.question}</dd></div>
+      <div><dt>Approach</dt><dd>{item.data.approach}</dd></div>
+      <div><dt>Impact</dt><dd>{item.data.application}</dd></div>
+    </dl>
+  </div>
+</article>

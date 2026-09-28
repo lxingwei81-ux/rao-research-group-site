@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ResearchCard from '../components/ResearchCard.astro';
+import FeaturedResearch from '../components/FeaturedResearch.astro';
+import PublicationCard from '../components/PublicationCard.astro';
+import NewsCard from '../components/NewsCard.astro';
+import CTA from '../components/CTA.astro';
+import { publications, site } from '../lib/data';
+
+const research = (await getCollection('research')).filter((item) => item.data.published).sort((a, b) => a.data.order - b.data.order);
+const featuredResearch = research.slice(0, 2);
+const featuredPublications = publications.filter((publication) => publication.featured).slice(0, 6);
+const news = (await getCollection('news')).filter((item) => item.data.published).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+---
+
+<BaseLayout description={site.lab_description || undefined}>
+  <Hero title={site.lab_tagline} description={site.lab_description} image="/images/research/Slide1.JPG" />
+
+  {research.length > 0 && <section class="section section--muted">
+    <div class="container">
+      <SectionHeader eyebrow="Research" title="Research themes" description="Materials and device research spanning soft electronics, optoelectronic systems and biological interfaces." href="/research/" />
+      <div class="research-grid">
+        {research.map((item) => <ResearchCard item={item} />)}
+      </div>
+    </div>
+  </section>}
+
+  {featuredResearch.length > 0 && <section class="section">
+    <div class="container">
+      <SectionHeader eyebrow="Research storytelling" title="From scientific question to application" />
+      <div class="featured-list">
+        {featuredResearch.map((item) => <FeaturedResearch item={item} />)}
+      </div>
+    </div>
+  </section>}
+
+  {featuredPublications.length > 0 && <section class="section section--muted">
+    <div class="container">
+      <SectionHeader eyebrow="Publications" title="Selected publications" href="/publications/" />
+      <div class="publication-grid">
+        {featuredPublications.map((publication) => <PublicationCard publication={publication} />)}
+      </div>
+    </div>
+  </section>}
+
+  {news.length > 0 && <section class="section">
+    <div class="container">
+      <SectionHeader eyebrow="Updates" title="Latest news" href="/news/" />
+      <div class="news-grid">{news.map((item) => <NewsCard item={item} />)}</div>
+    </div>
+  </section>}
+
+  <div class="container section section--compact"><CTA /></div>
+</BaseLayout>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Dr. Zhoulyu</title>
+    <style>
+        /* Centered A4-like paper container */
+        .paper {
+            width: 794px;  /* A4 width in pixels */
+            min-height: 1123px;  /* A4 height in pixels */
+            background: white;
+            margin: 40px auto; /* Center on the page */
+            padding: 40px;  /* Add padding inside */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+
+        .paper p {
+            text-align: justify;
+            line-height: 1.5;  /* Space between lines */
+            margin-bottom: 6px; /* 6px space after each paragraph */
+        }
+
+          /* Header Styling */
+        header {
+            background: #2C3E50;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between; /* Title on left, Nav on right */
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 60px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Tabs on the Right */
+        nav {
+            display: flex;
+            align-items: center;
+            margin-right: 80px; /* Moves tabs slightly to the right */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin-right: 40px;
+        }
+
+        /* Space Between Tabs (More Right Shift) */
+        nav ul li {
+            margin-left: 100px; /* Adjust spacing for ~5+ characters */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        /* Justify Align All Paragraphs and Add Side Margins */
+        p {
+            text-align: justify;  /* Ensures paragraph text is fully justified */
+            line-height: 2;  /* Set line spacing to 1.5 */
+            margin-left: 0px;  /* Adds space on the left */
+            margin-right: 0px; /* Adds space on the right */
+            margin-bottom: 10px; /* Space after each line */
+        }
+
+        /* Adds Space Between Sections */
+        section {
+            text-align: justify;  /* Ensures paragraph text is fully justified */
+            margin-left: 50px;  /* Adds space on the left */
+            margin-right: 50px; /* Adds space on the right */
+            line-height: 2;  /* Set line spacing to 1.5 */
+            margin-bottom: 10px; /* Space after each line */
+        }
+
+        section ul li {
+            margin-left: 0px;
+        }
+
+        /* Prevents Content Overlapping Header */
+        body {
+            padding-top: 80px;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dr. Zhoulyu Rao</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="Publications.html">Publications</a></li>
+                <li><a href="About me.html">About me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="paper">
+        <section id="affiliation">
+            <h1>Dr. Zhoulyu Rao</h1>
+            <p>Materials Research Laboratory<br>
+               University of Illinois, Urbana-Champaign<br>
+               104 South Goodwin Ave. Urbana, IL 61801, USA<br>
+               Office: MRL 480;<br>
+               e-mail: zhoulyu@illinois.edu</p>
+        </section>
+
+        <section id="Education">
+            <h1>Education</h1>
+            <p>University of Illinois at Urbana-Champaign, Urbana, IL (Dec. 2024 – )<br>
+               Post-doc, Materials Research Laboratory<br>
+               Advisor: Prof. Cunjiang Yu</p>
+            <p>Pennsylvania State University, University Park, PA (Jan. 2022 – Dec. 2024)<br>
+               Post-doc, Engineering Science and Mechanics<br>
+               Advisor: Prof. Cunjiang Yu</p>
+            <p>University of Houston, Houston, TX (Aug. 2016 – Dec. 2021)<br>
+               Ph.D., Material and Science Engineering<br>
+               Advisor: Prof. Cunjiang Yu</p>
+            <p>University of Science & Technology of China, Hefei, China (Sep. 2012 – Jul. 2015)<br>
+               M.S., Inorganic Chemistry<br>
+               Advisor: Prof. Yujie Xiong</p>
+            <p>Xidian University, Xi'an, China (Aug. 2008 – Jul. 2012)<br>
+               B.S., Applied Chemistry</p>
+        </section>
+
+        <section id="Honors and Awards">
+            <h1>Honors and Awards</h1>
+            <ul>
+                <li>2021, Chinese Government Award for Outstanding Students Studying Abroad</li>
+                <li>2020, Mechanical Engineering Graduate Scholarship, University of Houston</li>
+                <li>2019, Mechanical Engineering Graduate Scholarship, University of Houston</li>
+                <li>2019, Cora Hawley Scholarship from TcSUH, University of Houston</li>
+                <li>2015, P&G Outstanding Graduates Scholarship, Chinese Academy of Sciences</li>
+                <li>2015, Excellent Graduate Award, Anhui Province</li>
+            </ul>
+        </section>
+
+        <section id="Conference">
+            <h1>Conference</h1>
+            <p>Z. Rao, F. Ershad, and C. Yu. Untethered Cardiac Stimulation and Pacing Enabled by Ultra-thin Rubbery Bio-optoelectronic Stimulators, 2024 MRS Spring Meeting & Exhibit, 22-26, Apr. 2024, Seattle, WA, USA.<br>
+               Z. Rao, and C. Yu. Shape-Adaptive Curvy Imager Manufactured by Conformal Additive Stamp Printing, Society of Engineering Science 2022; 16-21, Oct. 2022, College Station, TX, USA.</p>
+        </section>
+
+        <section id="review">
+            <h1>Peer Review Service</h1>
+            <ul>
+                <li>Soft Science</li>
+                <li>Bioactive Materials</li>
+                <li>npj Robotics</li>
+                <li>Energy Materials</li>
+                <li>Materials Science in Semiconductor Processing</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

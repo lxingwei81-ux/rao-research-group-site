@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Dr. Zhoulyu</title>
+    <style>
+        /* Centered A4-like paper container */
+        .paper {
+            width: 794px;  /* A4 width in pixels */
+            min-height: 1123px;  /* A4 height in pixels */
+            background: white;
+            margin: 40px auto; /* Center on the page */
+            padding: 40px;  /* Add padding inside */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+
+        .paper p {
+            text-align: justify;
+            line-height: 1.5;  /* Space between lines */
+            margin-bottom: 6px; /* 6px space after each paragraph */
+        }
+
+        /* Header Styling */
+        header {
+            background: #2C3E50;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between; /* Title on left, Nav on right */
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 60px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Tabs on the Right */
+        nav {
+            display: flex;
+            align-items: center;
+            margin-right: 80px; /* Moves tabs slightly to the right */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin-right: 40px;
+        }
+
+        /* Space Between Tabs (More Right Shift) */
+        nav ul li {
+            margin-left: 100px; /* Adjust spacing for ~5+ characters */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Justify Align All Paragraphs and Add Side Margins */
+        p {
+            text-align: justify;  /* Ensures paragraph text is fully justified */
+            margin-left: 20px;  /* Adds space on the left */
+            margin-right: 20px; /* Adds space on the right */
+        }
+
+        /* Adds Space Between Sections */
+        section {
+            padding: 20px;  /* Adds vertical space above and below sections */
+            margin-bottom: 0px; /* Extra margin to increase spacing */
+            line-height: 2;  /* Set line spacing to 1.5 */
+            text-align: justify;  /* Ensures paragraph text is fully justified */
+        }
+
+        /* Center Content with Margin */
+        .container {
+            max-width: 800px;  /* Limits width for better readability */
+            margin: 0 auto;  /* Centers content horizontally */
+            line-height: 2;  /* Set line spacing to 1.5 */
+        }
+
+        /* Prevents Content Overlapping Header */
+        body {
+            padding-top: 80px;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        /* Image Styling */
+        img {
+            display: block;
+            margin: 20px auto; /* Center images and add vertical spacing */
+            max-width: 100%; /* Ensure images are responsive */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dr. Zhoulyu Rao</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="Publications.html">Publications</a></li>
+                <li><a href="About me.html">About me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="paper">
+        <section>
+            <h1>My Research</h1>
+            <p>My research interest focuses on pioneering new electronic materials and devices to bridge the gap between engineering devices and biological systems, to overcome some great challenges in or related to imaging, healthcare, medicine, robotics, etc. To achieve this goal, my research spans from the creation of electronic materials/devices with high area coverage, ultrathin thickness, or softness/stretchability-outperforming counterparts achieved by traditional technologies, to validating the devices in small animal models.</p>
+        </section>
+
+        <section>
+            <h2>My previous research area included three primary topics:</h2>
+            <ul>
+                <li>
+                    <strong>Bioelectronics and bio-optoelectronics:</strong> New biophysical optoelectronic materials/devices to seamlessly interface and modulate living biological species in a non-genetic fashion and untethered manner. One goal is to design a suitable material with tissue-like mechanical softness and deformability while offering optoelectronic performance to allow effective biological stimulation and pacing.
+                    <img src="Slide1.JPG" alt="Bioelectronics and bio-optoelectronics" width="500">
+                </li>
+                <li>
+                    <strong>3D Curvy optoelectronics:</strong> Optoelectronic imaging systems with 3D curvy shapes and form factors that normally adopt bio-inspired designs to meet the needs in biomedical, optoelectronics, communications, etc.
+                    <img src="Slide3.JPG" alt="3D Curvy optoelectronics" width="500">
+                </li>
+                <li>
+                    <strong>Rubbery electronics:</strong> Material innovation to build stretchable electronics entirely from intrinsically stretchable electronic materials, neatly avoiding complex structural engineering. Rubbery electronics aims at the symbiosis and fusion of engineering and biology.
+                </li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+---
+import { site } from '../lib/data';
+
+const currentPath = Astro.url.pathname;
+const navigation = [
+  { label: 'Home', href: '/' },
+  { label: 'Research', href: '/research/' },
+  { label: 'Publications', href: '/publications/' },
+  { label: 'People', href: '/people/' },
+  { label: 'News', href: '/news/' },
+  { label: 'Join Us', href: '/join-us/' }
+];
+const labName = site.lab_name || site.site_name;
+---
+
+<header class="site-header" data-site-header>
+  <div class="site-header__inner container">
+    <a class="institution-lockup" href={site.institution_url} aria-label={`${site.institution} homepage`}>
+      {site.official_logo ? <img src={site.official_logo} alt={`${site.institution} official logo`} /> : <span class="institution-lockup__text">{site.institution}</span>}
+      <span class="institution-lockup__department">{site.department}</span>
+    </a>
+    <div class="lab-lockup">
+      {labName && <a href="/">{labName}</a>}
+    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>
+      <span class="sr-only">Toggle navigation</span>
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="site-navigation" class="site-navigation" aria-label="Primary navigation" data-site-navigation>
+      <ul>
+        {navigation.map((item) => (
+          <li><a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const nav = document.querySelector<HTMLElement>('[data-site-navigation]');
+  const header = document.querySelector<HTMLElement>('[data-site-header]');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    nav?.classList.toggle('is-open', !isOpen);
+  });
+
+  window.addEventListener('scroll', () => header?.classList.toggle('is-compact', window.scrollY > 24), { passive: true });
+</script>

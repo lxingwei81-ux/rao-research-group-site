@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsCard from '../components/NewsCard.astro';
+
+const news = (await getCollection('news')).filter((item) => item.data.published).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="News" description="News and updates from the Rao Research Group.">
+  <section class="page-intro"><div class="container"><p class="eyebrow">News</p><h1>Group updates.</h1><p>Research highlights, publications, awards and community announcements.</p></div></section>
+  <section class="section section--muted"><div class="container">
+    {news.length > 0 ? <div class="news-grid">{news.map((item) => <NewsCard item={item} />)}</div> : <p class="empty-state">No news items have been published yet.</p>}
+  </div></section>
+</BaseLayout>
