@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { withBase } from '../lib/paths';
+import RaoProfile from '../components/RaoProfile.astro';
 
 const people = (await getCollection('people')).filter((person) => person.data.published).sort((a, b) => a.data.order - b.data.order);
 const principalInvestigator = people.find((person) => person.data.group === 'Principal Investigator');
@@ -10,19 +10,7 @@ const teamMembers = principalInvestigator ? people.filter((person) => person.id 
 
 <BaseLayout title="People" description="People in the Rao Research Group.">
   <section class="page">
-    <h1>People</h1>
-
-    {principalInvestigator && (
-      <article class="person-entry">
-        {principalInvestigator.data.photo && <img src={withBase(principalInvestigator.data.photo)} alt={`Portrait of ${principalInvestigator.data.name}`} />}
-        <div>
-          <h2>{principalInvestigator.data.name}</h2>
-          <p>{principalInvestigator.data.role}</p>
-          <p>{principalInvestigator.data.bio}</p>
-          <p><a href={withBase('/dr-rao/')}>Full profile</a></p>
-        </div>
-      </article>
-    )}
+    {principalInvestigator ? <RaoProfile profile={principalInvestigator} /> : <p>To be added.</p>}
 
     <h2>Group Members</h2>
     {teamMembers.length > 0 ? (

@@ -1,0 +1,62 @@
+---
+import { withBase } from '../lib/paths';
+
+interface Props {
+  profile: any;
+}
+
+const { profile } = Astro.props;
+const toBeAdded = 'To be added.';
+---
+
+<article class="rao-profile">
+  <div class="rao-profile__text">
+    <h1>Dr. Rao</h1>
+    <p class="profile-name">Dr. Zhoulyu Rao, {profile.data.role}</p>
+    {profile.data.affiliations.length > 0 ? (
+      <ul class="profile-lines">
+        {profile.data.affiliations.map((item: string) => <li>{item}</li>)}
+      </ul>
+    ) : <p>{toBeAdded}</p>}
+    <ul class="profile-lines profile-lines--contact">
+      <li><strong>Email:</strong> {profile.data.email ? <a href={`mailto:${profile.data.email}`}>{profile.data.email}</a> : toBeAdded}</li>
+      <li><strong>Office:</strong> {profile.data.office || toBeAdded}</li>
+      <li><strong>Lab:</strong> {profile.data.lab_locations.length > 0 ? profile.data.lab_locations.join('; ') : toBeAdded}</li>
+      <li><strong>Phone:</strong> {profile.data.phone || toBeAdded}</li>
+      <li><strong>CityU profile:</strong> {profile.data.personal_url ? <a href={profile.data.personal_url}>{profile.data.personal_url}</a> : toBeAdded}</li>
+    </ul>
+  </div>
+  <div class="rao-profile__media">
+    {profile.data.photo && <img src={withBase(profile.data.photo)} alt={`Portrait of ${profile.data.name}`} />}
+  </div>
+</article>
+
+<section class="cv-section">
+  <h2>Education</h2>
+  {profile.data.education.length > 0 ? <ul class="square-list">{profile.data.education.map((item: string) => <li>{item}</li>)}</ul> : <p>{toBeAdded}</p>}
+</section>
+
+<section class="cv-section">
+  <h2>Postdoctoral Training</h2>
+  {profile.data.experience.length > 0 ? <ul class="square-list">{profile.data.experience.map((item: string) => <li>{item}</li>)}</ul> : <p>{toBeAdded}</p>}
+</section>
+
+<section class="cv-section">
+  <h2>Appointments</h2>
+  {profile.data.academic_appointments.length > 0 ? <ul class="square-list">{profile.data.academic_appointments.map((item: string) => <li>{item}</li>)}</ul> : <p>{toBeAdded}</p>}
+</section>
+
+<section class="cv-section">
+  <h2>Research Interests</h2>
+  <p>{profile.data.research_interest || toBeAdded}</p>
+</section>
+
+<section class="cv-section">
+  <h2>Selected Awards &amp; Honors</h2>
+  {profile.data.selected_awards_honors.length > 0 ? <ul class="square-list">{profile.data.selected_awards_honors.map((item: string) => <li>{item}</li>)}</ul> : <p>{toBeAdded}</p>}
+</section>
+
+<section class="cv-section">
+  <h2>Editorial Service</h2>
+  {profile.data.editorial_service.length > 0 ? <ul class="square-list">{profile.data.editorial_service.map((item: string) => <li>{item}</li>)}</ul> : <p>{toBeAdded}</p>}
+</section>
