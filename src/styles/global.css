@@ -99,6 +99,8 @@ dd { margin-left: 0; }
 
 .department-lockup { margin: .75rem 0 1.25rem; }
 .department-lockup img { max-height: 5rem; object-fit: contain; object-position: left center; width: min(100%, 440px); }
+.positions-lead { color: #981b49; font-weight: 700; }
+.candidate-note { margin-bottom: 1.25rem; }
 .position-entry { border-top: 1px solid var(--line); padding: 1.25rem 0; }
 .position-entry h2 { margin-top: 0; }
 .application-note { background: var(--light); border: 1px solid var(--line); margin-top: 1.25rem; padding: 1rem; }
