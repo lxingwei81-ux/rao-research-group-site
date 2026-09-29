@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-const routes = ['', 'research/', 'publications/', 'people/', 'news/', 'join-us/'];
+const routes = ['', 'dr-rao/', 'research/', 'people/', 'publications/', 'positions/', 'news/'];
 
 export const GET: APIRoute = ({ site }) => {
   const deploymentSite = site || new URL('http://localhost:4321');

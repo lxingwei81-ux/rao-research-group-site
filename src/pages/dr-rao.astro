@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/paths';
+
+const people = (await getCollection('people')).filter((person) => person.data.published);
+const profile = people.find((person) => person.data.group === 'Principal Investigator');
+---
+
+<BaseLayout title="Dr. Rao" description="Profile of Prof. Zhoulyu Rao.">
+  <section class="page">
+    <h1>Dr. Zhoulyu Rao</h1>
+    {profile ? (
+      <article class="person-entry person-entry--profile">
+        {profile.data.photo && <img src={withBase(profile.data.photo)} alt={`Portrait of ${profile.data.name}`} />}
+        <div>
+          <h2>{profile.data.role}</h2>
+          <p>{profile.data.bio}</p>
+          <p><strong>Email:</strong> <a href={`mailto:${profile.data.email}`}>{profile.data.email}</a></p>
+          <p><strong>Office:</strong> {profile.data.office || 'To be added.'}</p>
+          <p><strong>Phone:</strong> {profile.data.phone || 'To be added.'}</p>
+          {profile.data.personal_url && <p><strong>CityU profile:</strong> <a href={profile.data.personal_url}>{profile.data.personal_url}</a></p>}
+        </div>
+      </article>
+    ) : <p>To be added.</p>}
+
+    {profile && (
+      <div class="profile-columns">
+        <section>
+          <h2>Education</h2>
+          {profile.data.education.length > 0 ? <ul>{profile.data.education.map((item) => <li>{item}</li>)}</ul> : <p>To be added.</p>}
+        </section>
+        <section>
+          <h2>Training</h2>
+          {profile.data.experience.length > 0 ? <ul>{profile.data.experience.map((item) => <li>{item}</li>)}</ul> : <p>To be added.</p>}
+        </section>
+        <section>
+          <h2>Appointments</h2>
+          {profile.data.academic_appointments.length > 0 ? <ul>{profile.data.academic_appointments.map((item) => <li>{item}</li>)}</ul> : <p>To be added.</p>}
+        </section>
+        <section>
+          <h2>Research Interests</h2>
+          <p>{profile.data.research_interest || 'To be added.'}</p>
+        </section>
+      </div>
+    )}
+  </section>
+</BaseLayout>

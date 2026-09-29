@@ -1,65 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionHeader from '../components/SectionHeader.astro';
-import PublicationCard from '../components/PublicationCard.astro';
-import { publications } from '../lib/data';
+import { publications, publicationCitation } from '../lib/data';
 
-const featured = publications.filter((publication) => publication.featured);
 const years = [...new Set(publications.map((publication) => publication.year))].sort((a, b) => b - a);
-const areas = [...new Set(publications.map((publication) => publication.research_area).filter(Boolean))] as string[];
-const scholarlyArticles = publications.slice(0, 6).map((publication) => ({
-  '@context': 'https://schema.org',
-  '@type': 'ScholarlyArticle',
-  headline: publication.title,
-  author: publication.authors,
-  datePublished: String(publication.year),
-  isPartOf: { '@type': 'Periodical', name: publication.journal },
-  ...(publication.doi ? { sameAs: `https://doi.org/${publication.doi}` } : {})
+const groupedPublications = years.map((year) => ({
+  year,
+  items: publications.filter((publication) => publication.year === year)
 }));
 ---
 
 <BaseLayout title="Publications" description="Publications from the Rao Research Group.">
-  <script type="application/ld+json" set:html={JSON.stringify(scholarlyArticles)}></script>
-  <section class="page-intro"><div class="container"><p class="eyebrow">Publications</p><h1>Research record</h1><p>Selected and full publications migrated from the previous group website. Publication links will appear when their DOI or publisher URL is added through the content file or CMS.</p></div></section>
+  <section class="page">
+    <h1>Publications</h1>
+    <p class="lead">Publication records are listed by year. DOI and publisher links will be added where available.</p>
 
-  {featured.length > 0 && <section class="section section--muted"><div class="container"><SectionHeader eyebrow="Selected" title="Featured publications" /><div class="publication-grid">{featured.map((publication) => <PublicationCard publication={publication} />)}</div></div></section>}
-
-  <section class="section"><div class="container">
-    <SectionHeader eyebrow="Archive" title="All publications" description="Search and filter the complete publication list." />
-    <div class="filters" data-publication-filters>
-      <label>Search publications<input type="search" placeholder="Title, author or journal" data-publication-search /></label>
-      <label>Year<select data-publication-year><option value="">All years</option>{years.map((year) => <option value={year}>{year}</option>)}</select></label>
-      <label>Research area<select data-publication-area><option value="">All areas</option>{areas.map((area) => <option value={area}>{area}</option>)}</select></label>
-    </div>
-    <p class="result-count" data-result-count>{publications.length} publications</p>
-    <div class="featured-list" data-publication-list>{publications.map((publication) => <PublicationCard publication={publication} compact />)}</div>
-    <p class="no-results" data-no-results hidden>No publications match the selected filters.</p>
-  </div></section>
+    {groupedPublications.map((group) => (
+      <section class="publication-year">
+        <h2>{group.year}</h2>
+        <ol class="publication-list">
+          {group.items.map((publication) => {
+            const destination = publication.url || (publication.doi ? `https://doi.org/${publication.doi}` : undefined);
+            return (
+              <li id={publication.id}>
+                <span class="publication-title">{destination ? <a href={destination}>{publication.title}</a> : publication.title}</span>
+                <span>{publication.authors}</span>
+                <span><em>{publicationCitation(publication)}</em></span>
+                {publication.equal_contribution_note && <span>{publication.equal_contribution_note}</span>}
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+    ))}
+  </section>
 </BaseLayout>
-
-<script>
-  const search = document.querySelector<HTMLInputElement>('[data-publication-search]');
-  const year = document.querySelector<HTMLSelectElement>('[data-publication-year]');
-  const area = document.querySelector<HTMLSelectElement>('[data-publication-area]');
-  const cards = [...document.querySelectorAll<HTMLElement>('[data-publication-list] [data-publication]')];
-  const count = document.querySelector<HTMLElement>('[data-result-count]');
-  const empty = document.querySelector<HTMLElement>('[data-no-results]');
-
-  const updateResults = () => {
-    const term = search?.value.trim().toLowerCase() || '';
-    const selectedYear = year?.value || '';
-    const selectedArea = area?.value || '';
-    let visible = 0;
-    cards.forEach((card) => {
-      const matches = (!term || card.dataset.search?.includes(term)) && (!selectedYear || card.dataset.year === selectedYear) && (!selectedArea || card.dataset.area === selectedArea);
-      card.hidden = !matches;
-      if (matches) visible += 1;
-    });
-    if (count) count.textContent = `${visible} publication${visible === 1 ? '' : 's'}`;
-    if (empty) empty.hidden = visible !== 0;
-  };
-
-  [search, year, area].forEach((element) => element?.addEventListener('input', updateResults));
-  year?.addEventListener('change', updateResults);
-  area?.addEventListener('change', updateResults);
-</script>

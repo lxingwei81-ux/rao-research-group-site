@@ -21,7 +21,7 @@ const visibleDescription = description || (isDraft ? '[CONTENT NEEDED: LAB DESCR
       {visibleDescription && <p class:list={['hero__description', { 'draft-copy': !title || !description }]}>{visibleDescription}</p>}
       <div class="hero__actions">
         <a class="button button--primary" href={withBase('/research/')}>Explore Research <span aria-hidden="true">→</span></a>
-        <a class="button button--quiet" href={withBase('/join-us/')}>Join Us <span aria-hidden="true">→</span></a>
+        <a class="button button--quiet" href={withBase('/positions/')}>Positions <span aria-hidden="true">→</span></a>
       </div>
     </div>
     {image ? (

@@ -7,12 +7,12 @@ const date = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', da
 const href = item.data.external_url || (item.data.internal_url ? withBase(item.data.internal_url) : undefined);
 ---
 
-<article class="news-card reveal">
+<article class="news-card">
   {item.data.image && <img src={withBase(item.data.image)} alt="" loading="lazy" />}
   <div>
-    <p class="publication-card__meta">{date}</p>
+    <p class="news-card__date">{date}</p>
     <h3>{href ? <a href={href}>{item.data.title}</a> : item.data.title}</h3>
     <p>{item.data.summary}</p>
-    {href && <a class="text-link" href={href}>Read more <span aria-hidden="true">→</span></a>}
+    {href && <a class="text-link" href={href}>Read more</a>}
   </div>
 </article>

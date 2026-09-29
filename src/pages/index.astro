@@ -1,57 +1,62 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import SectionHeader from '../components/SectionHeader.astro';
-import ResearchCard from '../components/ResearchCard.astro';
-import FeaturedResearch from '../components/FeaturedResearch.astro';
-import PublicationCard from '../components/PublicationCard.astro';
-import NewsCard from '../components/NewsCard.astro';
-import CTA from '../components/CTA.astro';
 import { publications, site } from '../lib/data';
+import { withBase } from '../lib/paths';
 
 const research = (await getCollection('research')).filter((item) => item.data.published).sort((a, b) => a.data.order - b.data.order);
-const featuredResearch = research.slice(0, 2);
-const featuredPublications = publications.filter((publication) => publication.featured).slice(0, 6);
-const news = (await getCollection('news')).filter((item) => item.data.published).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+const news = (await getCollection('news')).filter((item) => item.data.published).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 4);
+const selectedPublications = publications.filter((publication) => publication.featured).slice(0, 5);
 ---
 
 <BaseLayout description={site.lab_description || undefined}>
-  <Hero title={site.lab_tagline} description={site.lab_description} image="/images/research/Slide1.JPG" />
-
-  {research.length > 0 && <section class="section section--muted">
-    <div class="container">
-      <SectionHeader eyebrow="Research" title="Research themes" description="Materials and device research spanning soft electronics, optoelectronic systems and biological interfaces." href="/research/" />
-      <div class="research-grid">
-        {research.map((item) => <ResearchCard item={item} />)}
+  <section class="page">
+    <div class="home-layout">
+      <div>
+        <h1>Rao Research Group</h1>
+        <p class="lead">{site.lab_description}</p>
+        <p>We work at the intersection of functional materials chemistry, flexible electronics and bioengineering. The group develops bio-integrated electronic systems for personalized medicine, wearable health monitoring and human-machine interfaces.</p>
+        <p>Additional group information, photographs and laboratory details will be added as the group website develops.</p>
       </div>
+      <figure class="home-photo">
+        <img src={withBase('/images/research/Slide1.JPG')} alt="Representative research image" />
+        <figcaption>Representative research image. Final laboratory or group photo to be added.</figcaption>
+      </figure>
     </div>
-  </section>}
+  </section>
 
-  {featuredResearch.length > 0 && <section class="section">
-    <div class="container">
-      <SectionHeader eyebrow="Research storytelling" title="From scientific question to application" />
-      <div class="featured-list">
-        {featuredResearch.map((item) => <FeaturedResearch item={item} />)}
-      </div>
-    </div>
-  </section>}
+  <section class="page page--compact">
+    <h2>News</h2>
+    {news.length > 0 ? (
+      <ul class="news-list">
+        {news.map((item) => (
+          <li>
+            <time datetime={item.data.date.toISOString()}>{item.data.date.toISOString().slice(0, 10)}</time>
+            <a href={withBase(item.data.internal_url || '/news/')}>{item.data.title}</a>
+          </li>
+        ))}
+      </ul>
+    ) : <p>To be added.</p>}
+  </section>
 
-  {featuredPublications.length > 0 && <section class="section section--muted">
-    <div class="container">
-      <SectionHeader eyebrow="Publications" title="Selected publications" href="/publications/" />
-      <div class="publication-grid">
-        {featuredPublications.map((publication) => <PublicationCard publication={publication} />)}
-      </div>
-    </div>
-  </section>}
+  <section class="page page--compact">
+    <h2>Research</h2>
+    <ul class="plain-list">
+      {research.map((item) => <li><a href={withBase(`/research/#${item.id}`)}>{item.data.title}</a>: {item.data.short_description}</li>)}
+    </ul>
+  </section>
 
-  {news.length > 0 && <section class="section">
-    <div class="container">
-      <SectionHeader eyebrow="Updates" title="Latest news" href="/news/" />
-      <div class="news-grid">{news.map((item) => <NewsCard item={item} />)}</div>
-    </div>
-  </section>}
-
-  <div class="container section section--compact"><CTA /></div>
+  <section class="page page--compact">
+    <h2>Selected Publications</h2>
+    <ol class="publication-list">
+      {selectedPublications.map((publication) => (
+        <li>
+          <span class="publication-title">{publication.title}</span>
+          <span>{publication.authors}</span>
+          <span>{publication.journal}, {publication.year}.</span>
+        </li>
+      ))}
+    </ol>
+    <p><a href={withBase('/publications/')}>More publications</a></p>
+  </section>
 </BaseLayout>

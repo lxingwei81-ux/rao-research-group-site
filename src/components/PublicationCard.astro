@@ -9,11 +9,10 @@ const destination = publication.url || (publication.doi ? `https://doi.org/${pub
 <article id={publication.id} class:list={['publication-card', { 'publication-card--compact': compact }]} data-publication data-year={publication.year} data-area={publication.research_area || ''} data-search={`${publication.title} ${publication.authors} ${publication.journal}`.toLowerCase()}>
   {publication.cover_image && !compact && <div class="publication-card__image"><img src={withBase(publication.cover_image)} alt="" loading="lazy" /></div>}
   <div class="publication-card__body">
-    <p class="publication-card__meta">{publication.year} {publication.research_area && <span>· {publication.research_area}</span>}</p>
     <h3>{destination ? <a href={destination}>{publication.title}</a> : publication.title}</h3>
     <p class="publication-card__authors">{publication.authors}</p>
-    <p class="publication-card__citation"><em>{publicationCitation(publication)}</em></p>
+    <p class="publication-card__citation">{publication.year}. <em>{publicationCitation(publication)}</em></p>
     {publication.equal_contribution_note && <p class="publication-card__note">{publication.equal_contribution_note}</p>}
-    {destination && <a class="text-link" href={destination}>Read publication <span aria-hidden="true">↗</span></a>}
+    {destination && <a class="text-link" href={destination}>Link</a>}
   </div>
 </article>

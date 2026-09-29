@@ -4,19 +4,13 @@ const labName = site.lab_name || site.site_name;
 ---
 
 <footer class="site-footer">
-  <div class="container site-footer__grid">
+  <div class="container">
     <div>
       {labName && <p class="site-footer__name">{labName}</p>}
       <p>{site.department}<br />{site.institution}</p>
       {site.address && <p>{site.address}</p>}
       {site.contact_email && <a href={`mailto:${site.contact_email}`}>{site.contact_email}</a>}
     </div>
-    <div class="site-footer__links">
-      <p class="eyebrow">University information</p>
-      <ul>
-        {site.footer_links.map((link) => <li><a href={link.url}>{link.label}</a></li>)}
-      </ul>
-    </div>
+    <p class="site-footer__bottom">© {currentYear} {labName || 'Zhoulyu Rao Research Group'}.</p>
   </div>
-  <div class="container site-footer__bottom">© {currentYear} {labName || 'Zhoulyu Rao Research Group'}. All rights reserved.</div>
 </footer>

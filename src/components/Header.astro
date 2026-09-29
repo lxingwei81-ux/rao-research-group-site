@@ -5,24 +5,24 @@ import { withBase } from '../lib/paths';
 const currentPath = Astro.url.pathname;
 const navigation = [
   { label: 'Home', href: '/' },
+  { label: 'Dr. Rao', href: '/dr-rao/' },
   { label: 'Research', href: '/research/' },
-  { label: 'Publications', href: '/publications/' },
   { label: 'People', href: '/people/' },
-  { label: 'News', href: '/news/' },
-  { label: 'Join Us', href: '/join-us/' }
+  { label: 'Publications', href: '/publications/' },
+  { label: 'Positions', href: '/positions/' },
+  { label: 'News', href: '/news/' }
 ].map((item) => ({ ...item, href: withBase(item.href) }));
 const labName = site.lab_name || site.site_name;
 ---
 
-<header class="site-header" data-site-header>
+<header class="site-header">
   <div class="site-header__inner container">
-    <a class="institution-lockup" href={site.institution_url} aria-label={`${site.institution} homepage`}>
-      {site.official_logo ? <img src={withBase(site.official_logo)} alt={`${site.institution} official logo`} /> : <span class="institution-lockup__text">{site.institution}</span>}
-      <span class="institution-lockup__department">{site.department}</span>
+    <a class="site-title" href={withBase('/')}>
+      <span>{labName}</span>
     </a>
-    <div class="lab-lockup">
-      {labName && <a href={withBase('/')}>{labName}</a>}
-    </div>
+    <a class="institution-lockup" href={site.institution_url} aria-label={`${site.institution} homepage`}>
+      {site.official_logo ? <img src={withBase(site.official_logo)} alt={`${site.institution} logo`} /> : <span>{site.institution}</span>}
+    </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>
       <span class="sr-only">Toggle navigation</span>
       <span></span><span></span><span></span>
@@ -40,13 +40,10 @@ const labName = site.lab_name || site.site_name;
 <script>
   const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
   const nav = document.querySelector<HTMLElement>('[data-site-navigation]');
-  const header = document.querySelector<HTMLElement>('[data-site-header]');
 
   toggle?.addEventListener('click', () => {
     const isOpen = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!isOpen));
     nav?.classList.toggle('is-open', !isOpen);
   });
-
-  window.addEventListener('scroll', () => header?.classList.toggle('is-compact', window.scrollY > 24), { passive: true });
 </script>

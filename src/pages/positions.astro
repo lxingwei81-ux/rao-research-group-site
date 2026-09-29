@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { positions, site } from '../lib/data';
+import { withBase } from '../lib/paths';
+
+const applicationEmail = site.contact_email || 'zhoulrao@cityu.edu.hk';
+const applicationSubject = '[Application - Position Title] - Your Name';
+---
+
+<BaseLayout title="Positions" description="Open positions in the Rao Research Group.">
+  <section class="page">
+    <h1>Positions</h1>
+    <div class="department-lockup">
+      <img src={withBase('/images/institution/cityu-chemistry-logo.png')} alt="Department of Chemistry, City University of Hong Kong" />
+    </div>
+    <p class="lead">The Rao Research Group is recruiting postdoctoral fellows, Ph.D. students for Fall 2027 entry and research assistants.</p>
+
+    {positions.length > 0 ? positions.map((position) => (
+      <article class="position-entry">
+        <h2>{position.position}</h2>
+        <p><strong>Status:</strong> {position.status || 'To be added.'}</p>
+        <p><strong>Start:</strong> {position.start || 'To be added.'}</p>
+        <p>{position.intro}</p>
+        <p>{position.description}</p>
+        <h3>Requirements</h3>
+        {position.requirements && position.requirements.length > 0 ? <ul>{position.requirements.map((item) => <li>{item}</li>)}</ul> : <p>To be added.</p>}
+        <h3>Application Materials</h3>
+        {position.application_documents && position.application_documents.length > 0 ? <ul>{position.application_documents.map((item) => <li>{item}</li>)}</ul> : <p>To be added.</p>}
+      </article>
+    )) : <p>To be added.</p>}
+
+    <section class="application-note">
+      <h2>How to Apply</h2>
+      <p>Please combine all application materials into a single PDF and email it to <a href={`mailto:${applicationEmail}`}>{applicationEmail}</a>.</p>
+      <p>Email subject: <strong>{applicationSubject}</strong></p>
+    </section>
+  </section>
+</BaseLayout>
