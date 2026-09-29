@@ -175,6 +175,21 @@ content:
         label: Academic appointments
         type: string
         list: true
+      - name: affiliations
+        type: string
+        list: true
+      - name: lab_locations
+        label: Lab locations
+        type: string
+        list: true
+      - name: selected_awards_honors
+        label: Selected awards and honors
+        type: string
+        list: true
+      - name: editorial_service
+        label: Editorial service
+        type: string
+        list: true
       - name: research_interest
         label: Research interests
         type: text

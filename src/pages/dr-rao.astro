@@ -5,44 +5,65 @@ import { withBase } from '../lib/paths';
 
 const people = (await getCollection('people')).filter((person) => person.data.published);
 const profile = people.find((person) => person.data.group === 'Principal Investigator');
+const toBeAdded = 'To be added.';
 ---
 
 <BaseLayout title="Dr. Rao" description="Profile of Prof. Zhoulyu Rao.">
   <section class="page">
-    <h1>Dr. Zhoulyu Rao</h1>
     {profile ? (
-      <article class="person-entry person-entry--profile">
-        {profile.data.photo && <img src={withBase(profile.data.photo)} alt={`Portrait of ${profile.data.name}`} />}
-        <div>
-          <h2>{profile.data.role}</h2>
-          <p>{profile.data.bio}</p>
-          <p><strong>Email:</strong> <a href={`mailto:${profile.data.email}`}>{profile.data.email}</a></p>
-          <p><strong>Office:</strong> {profile.data.office || 'To be added.'}</p>
-          <p><strong>Phone:</strong> {profile.data.phone || 'To be added.'}</p>
-          {profile.data.personal_url && <p><strong>CityU profile:</strong> <a href={profile.data.personal_url}>{profile.data.personal_url}</a></p>}
-        </div>
-      </article>
-    ) : <p>To be added.</p>}
+      <>
+        <article class="rao-profile">
+          <div class="rao-profile__text">
+            <h1>Dr. Zhoulyu Rao, {profile.data.role}</h1>
+            {profile.data.affiliations.length > 0 ? (
+              <ul class="profile-lines">
+                {profile.data.affiliations.map((item) => <li>{item}</li>)}
+              </ul>
+            ) : <p>{toBeAdded}</p>}
+            <ul class="profile-lines profile-lines--contact">
+              <li><strong>Email:</strong> {profile.data.email ? <a href={`mailto:${profile.data.email}`}>{profile.data.email}</a> : toBeAdded}</li>
+              <li><strong>Office:</strong> {profile.data.office || toBeAdded}</li>
+              <li><strong>Lab:</strong> {profile.data.lab_locations.length > 0 ? profile.data.lab_locations.join('; ') : toBeAdded}</li>
+              <li><strong>Phone:</strong> {profile.data.phone || toBeAdded}</li>
+              <li><strong>CityU profile:</strong> {profile.data.personal_url ? <a href={profile.data.personal_url}>{profile.data.personal_url}</a> : toBeAdded}</li>
+            </ul>
+          </div>
+          <div class="rao-profile__media">
+            {profile.data.photo && <img src={withBase(profile.data.photo)} alt={`Portrait of ${profile.data.name}`} />}
+            <div class="image-slot">To be added.</div>
+          </div>
+        </article>
 
-    {profile && (
-      <div class="profile-columns">
-        <section>
+        <section class="cv-section">
           <h2>Education</h2>
-          {profile.data.education.length > 0 ? <ul>{profile.data.education.map((item) => <li>{item}</li>)}</ul> : <p>To be added.</p>}
+          {profile.data.education.length > 0 ? <ul class="square-list">{profile.data.education.map((item) => <li>{item}</li>)}</ul> : <p>{toBeAdded}</p>}
         </section>
-        <section>
-          <h2>Training</h2>
-          {profile.data.experience.length > 0 ? <ul>{profile.data.experience.map((item) => <li>{item}</li>)}</ul> : <p>To be added.</p>}
+
+        <section class="cv-section">
+          <h2>Postdoctoral Training</h2>
+          {profile.data.experience.length > 0 ? <ul class="square-list">{profile.data.experience.map((item) => <li>{item}</li>)}</ul> : <p>{toBeAdded}</p>}
         </section>
-        <section>
+
+        <section class="cv-section">
           <h2>Appointments</h2>
-          {profile.data.academic_appointments.length > 0 ? <ul>{profile.data.academic_appointments.map((item) => <li>{item}</li>)}</ul> : <p>To be added.</p>}
+          {profile.data.academic_appointments.length > 0 ? <ul class="square-list">{profile.data.academic_appointments.map((item) => <li>{item}</li>)}</ul> : <p>{toBeAdded}</p>}
         </section>
-        <section>
+
+        <section class="cv-section">
           <h2>Research Interests</h2>
-          <p>{profile.data.research_interest || 'To be added.'}</p>
+          <p>{profile.data.research_interest || toBeAdded}</p>
         </section>
-      </div>
-    )}
+
+        <section class="cv-section">
+          <h2>Selected Awards &amp; Honors</h2>
+          {profile.data.selected_awards_honors.length > 0 ? <ul class="square-list">{profile.data.selected_awards_honors.map((item) => <li>{item}</li>)}</ul> : <p>{toBeAdded}</p>}
+        </section>
+
+        <section class="cv-section">
+          <h2>Editorial Service</h2>
+          {profile.data.editorial_service.length > 0 ? <ul class="square-list">{profile.data.editorial_service.map((item) => <li>{item}</li>)}</ul> : <p>{toBeAdded}</p>}
+        </section>
+      </>
+    ) : <p>{toBeAdded}</p>}
   </section>
 </BaseLayout>
