@@ -26,9 +26,13 @@ const people = defineCollection({
     photo: z.string().optional(),
     bio: z.string().optional(),
     education: z.array(z.string()).default([]),
+    experience: z.array(z.string()).default([]),
+    academic_appointments: z.array(z.string()).default([]),
     research_interest: z.string().optional(),
     email: z.string().email().optional(),
     personal_url: z.string().url().optional(),
+    office: z.string().optional(),
+    phone: z.string().optional(),
     order: z.number().default(999),
     published: z.boolean().default(false)
   })
@@ -41,6 +45,7 @@ const news = defineCollection({
     date: z.coerce.date(),
     summary: z.string(),
     image: z.string().optional(),
+    internal_url: z.string().optional(),
     external_url: z.string().url().optional(),
     featured: z.boolean().default(false),
     published: z.boolean().default(false)

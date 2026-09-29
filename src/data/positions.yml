@@ -1,1 +1,46 @@
-[]
+- position: "Postdoctoral Fellow"
+  status: "Recruiting"
+  start: "Open until filled"
+  intro: "香港城市大学化学系饶州铝博士课题组现诚聘博士后。"
+  description: "The group develops flexible bio-integrated electronic systems for personalized medicine, wearable health monitoring and human-machine interfaces."
+  requirements:
+    - "欢迎具有化学、材料科学、生物工程或相关学科背景的申请者。"
+    - "具有高分子合成、微纳加工、电化学、生物界面、柔性机器人或电生理学等研究经验者优先。"
+  application_documents:
+    - "Cover letter: briefly describe your research interests and career plans."
+    - "CV: include a complete publication list."
+    - "Contact information for 2-3 academic referees."
+  application_method: "Please combine all application materials into a single PDF and email it to zhoulrao@cityu.edu.hk. Email subject: [Application - Position Title] - Your Name."
+  contact_email: "zhoulrao@cityu.edu.hk"
+  published: true
+
+- position: "Ph.D. Student"
+  status: "2027 Fall Entry"
+  start: "Fall 2027"
+  intro: "香港城市大学化学系饶州铝博士课题组招收 2027 年秋季入学博士研究生。"
+  description: "Ph.D. students will work across flexible and stretchable electronic materials, bioelectronic interfaces, interface chemistry and adaptive wireless bioelectronic systems."
+  requirements:
+    - "中国香港/中国澳门/海外院校：GPA >= 3.5/4.0，或一等荣誉学位。"
+    - "中国内地及台湾地区院校：平均分 >= 85。"
+    - "语言要求：全英文授课的学士/硕士学位，或 TOEFL >= 79，或 IELTS >= 6.5。"
+  application_documents:
+    - "Cover letter: briefly describe your research interests and career plans."
+    - "CV: include a complete publication list if applicable."
+  application_method: "Please combine all application materials into a single PDF and email it to zhoulrao@cityu.edu.hk. Email subject: [Application - Position Title] - Your Name."
+  contact_email: "zhoulrao@cityu.edu.hk"
+  published: true
+
+- position: "Research Assistant"
+  status: "Recruiting"
+  start: "Available to start any time"
+  intro: "香港城市大学化学系饶州铝博士课题组现诚聘研究助理，可随时到岗。"
+  description: "Research assistants will support materials preparation, device fabrication, characterization and bio-integrated electronic system experiments."
+  requirements:
+    - "欢迎具有化学、材料科学、生物工程或相关学科背景的申请者。"
+    - "具有高分子合成、微纳加工、电化学、生物界面、柔性机器人或电生理学等研究经验者优先。"
+  application_documents:
+    - "Cover letter: briefly describe your research interests and career plans."
+    - "CV: include relevant research experience and publications if applicable."
+  application_method: "Please combine all application materials into a single PDF and email it to zhoulrao@cityu.edu.hk. Email subject: [Application - Position Title] - Your Name."
+  contact_email: "zhoulrao@cityu.edu.hk"
+  published: true

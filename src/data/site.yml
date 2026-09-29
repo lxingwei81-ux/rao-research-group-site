@@ -6,10 +6,10 @@ site_url: "https://zhoulyu.com"
 department: "Department of Chemistry"
 institution: "City University of Hong Kong"
 institution_url: "https://www.cityu.edu.hk/"
-department_url: ""
-official_logo: ""
-contact_email: ""
-address: ""
+department_url: "https://www.cityu.edu.hk/chem/"
+official_logo: "/images/institution/cityu-logo.png"
+contact_email: "zhoulrao@cityu.edu.hk"
+address: "Department of Chemistry, City University of Hong Kong"
 social_links: []
 footer_links:
   - label: Privacy Policy

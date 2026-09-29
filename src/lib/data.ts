@@ -40,7 +40,9 @@ export interface Position {
   intro?: string;
   position: string;
   description?: string;
-  requirements?: string;
+  start?: string;
+  requirements?: string[];
+  application_documents?: string[];
   status?: string;
   application_method?: string;
   contact_email?: string;

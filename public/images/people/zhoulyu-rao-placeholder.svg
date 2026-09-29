@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Portrait placeholder for Prof. Zhoulyu Rao</title>
+  <desc id="desc">A reserved square portrait area using the CityU red palette.</desc>
+  <rect width="1200" height="1200" fill="#f4f5f5"/>
+  <circle cx="600" cy="440" r="170" fill="#981b49" opacity="0.9"/>
+  <path d="M285 1025c42-213 164-335 315-335s273 122 315 335" fill="#981b49" opacity="0.9"/>
+  <rect x="110" y="110" width="980" height="980" fill="none" stroke="#dadddf" stroke-width="6"/>
+  <text x="600" y="1110" text-anchor="middle" fill="#666a70" font-family="Arial, sans-serif" font-size="42">Portrait to be added</text>
+</svg>

@@ -168,6 +168,13 @@ content:
       - name: education
         type: string
         list: true
+      - name: experience
+        type: string
+        list: true
+      - name: academic_appointments
+        label: Academic appointments
+        type: string
+        list: true
       - name: research_interest
         label: Research interests
         type: text
@@ -175,6 +182,10 @@ content:
         type: string
       - name: personal_url
         label: Personal URL
+        type: string
+      - name: office
+        type: string
+      - name: phone
         type: string
       - name: order
         type: number
@@ -209,6 +220,9 @@ content:
         required: true
       - name: image
         type: image
+      - name: internal_url
+        label: Internal URL
+        type: string
       - name: external_url
         label: External URL
         type: string
@@ -237,8 +251,15 @@ content:
         type: text
       - name: requirements
         type: text
+        list: true
+      - name: start
+        type: string
       - name: status
         type: string
+      - name: application_documents
+        label: Application documents
+        type: text
+        list: true
       - name: application_method
         type: text
       - name: contact_email
