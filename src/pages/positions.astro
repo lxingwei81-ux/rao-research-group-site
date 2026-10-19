@@ -1,39 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { positions, site } from '../lib/data';
-import { withBase } from '../lib/paths';
-
-const applicationEmail = site.contact_email || 'zhoulrao@cityu.edu.hk';
-const applicationSubject = '[Application - Position Title] - Your Name';
+const applicationEmail=site.contact_email || 'zhoulrao@cityu.edu.hk';
+const applicationSubject='Application for [Position] - [Your Name] - [Current Institution]';
 ---
-
-<BaseLayout title="Positions" description="Open positions in the Rao Research Group.">
-  <section class="page">
-    <h1>Positions</h1>
-    <div class="department-lockup">
-      <img src={withBase('/images/institution/cityu-chemistry-logo.png')} alt="Department of Chemistry, City University of Hong Kong" />
-    </div>
-    <p class="lead positions-lead">The Rao Research Group is recruiting postdoctoral fellows, Ph.D. students for Fall 2027 entry and research assistants.</p>
-    <p class="candidate-note">We warmly welcome applicants with backgrounds in chemistry, materials science, bioengineering, or related disciplines. Applicants with research experience in polymer synthesis, micro/nanofabrication, electrochemistry, biointerfaces, soft robotics, or electrophysiology are especially encouraged to apply.</p>
-
-    {positions.length > 0 ? positions.map((position) => (
-      <article class="position-entry">
-        <h2>{position.position}</h2>
-        <p><strong>Status:</strong> {position.status || 'To be added.'}</p>
-        <p><strong>Start:</strong> {position.start || 'To be added.'}</p>
-        <p>{position.intro}</p>
-        <p>{position.description}</p>
-        <h3>Requirements</h3>
-        {position.requirements && position.requirements.length > 0 ? <ul>{position.requirements.map((item) => <li>{item}</li>)}</ul> : <p>To be added.</p>}
-        <h3>Application Materials</h3>
-        {position.application_documents && position.application_documents.length > 0 ? <ul>{position.application_documents.map((item) => <li>{item}</li>)}</ul> : <p>To be added.</p>}
-      </article>
-    )) : <p>To be added.</p>}
-
-    <section class="application-note">
-      <h2>How to Apply</h2>
-      <p>Please combine all application materials into a single PDF and email it to <a href={`mailto:${applicationEmail}`}>{applicationEmail}</a>.</p>
-      <p>Email subject: <strong>{applicationSubject}</strong></p>
-    </section>
-  </section>
+<BaseLayout title="Join Us" description="Join our lab at CityUHK. Explore Ph.D., postdoctoral and research assistant opportunities in soft electronics and bio-integrated devices.">
+<section class="page"><h1>Join Us</h1>
+<p class="lead">Join our lab to explore soft electronics and bio-integrated devices.</p>
+<p>We welcome applicants with backgrounds in chemistry, materials science, bioengineering and related disciplines who are interested in working with us.</p>
+{positions.length ? positions.map((p,i)=><article class="position-entry" id={'position-'+i}><p class="eyebrow">{p.status}</p><h2>{p.position}</h2>{p.start && <p><strong>Start:</strong> {p.start}</p>}<p>{p.intro}</p><p>{p.description}</p>{p.requirements?.length && <><h3>Background and requirements</h3><ul>{p.requirements.map(item=><li>{item}</li>)}</ul></>}{p.application_documents?.length && <><h3>Application materials</h3><ul>{p.application_documents.map(item=><li>{item}</li>)}</ul></>}</article>):<p>No positions are currently advertised. Please contact us about future opportunities.</p>}
+<section class="application-note"><h2>Ph.D. funding & applications</h2><p>If you are interested in joining us as a Ph.D. student, you can explore the <a href="https://www.cityu.edu.hk/en/pg/hong-kong-phd-fellowship-scheme/about-the-scheme">Hong Kong PhD Fellowship Scheme (HKPFS)</a>. See CityUHK's official guidance for eligibility, funding, deadlines and the separate fellowship application process.</p><p>Alongside your CV and cover letter, please prepare academic transcripts and a brief statement of research interests so we can discuss potential projects with you. The university may require additional documents for the formal application.</p><p><a href="https://www.cityu.edu.hk/pg/research-degree-programmes/steps-and-procedures">CityUHK research degree application guidance ↗</a></p></section>
+<section class="application-note"><h2>How to apply</h2><p>Please combine your application materials into a single PDF and send them to us at <a href={'mailto:'+applicationEmail+'?subject='+encodeURIComponent(applicationSubject)}>{applicationEmail}</a>.</p><p>Email subject: <strong>{applicationSubject}</strong></p><p>If you would like to visit our lab, please tell us your proposed dates, current institution and research interests.</p></section>
+</section>
 </BaseLayout>

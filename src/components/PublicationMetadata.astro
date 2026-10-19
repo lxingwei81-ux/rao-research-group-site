@@ -1,0 +1,7 @@
+---
+import type { Publication } from '../lib/data';
+interface Props { publication: Publication }
+const { publication } = Astro.props;
+const details = [publication.volume, publication.pages, publication.year].filter(Boolean).join(', ');
+---
+<strong><em>{publication.journal}</em></strong>{', ' + details}

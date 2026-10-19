@@ -2,24 +2,15 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RaoProfile from '../components/RaoProfile.astro';
-
-const people = (await getCollection('people')).filter((person) => person.data.published).sort((a, b) => a.data.order - b.data.order);
-const principalInvestigator = people.find((person) => person.data.group === 'Principal Investigator');
-const teamMembers = principalInvestigator ? people.filter((person) => person.id !== principalInvestigator.id) : people;
+import { withBase } from '../lib/paths';
+const people = (await getCollection('people')).filter(p => p.data.published).sort((a,b)=>a.data.order-b.data.order);
+const pi = people.find(p=>p.data.group==='Principal Investigator');
+const groups = ['Postdoctoral Fellows','PhD Students','Research Staff','Visiting Researchers','Alumni'].map(name=>({name,members:people.filter(p=>p.data.group===name)})).filter(g=>g.members.length);
 ---
-
-<BaseLayout title="People" description="People in the Rao Research Group.">
-  <section class="page">
-    {principalInvestigator ? <RaoProfile profile={principalInvestigator} /> : <p>To be added.</p>}
-
-    <h2>Group Members</h2>
-    {teamMembers.length > 0 ? (
-      <ul class="plain-list">
-        {teamMembers.map((person) => <li>{person.data.name}, {person.data.role}</li>)}
-      </ul>
-    ) : <p>To be added.</p>}
-
-    <h2>Alumni</h2>
-    <p>To be added.</p>
-  </section>
+<BaseLayout title="People" description="Meet our lab and learn about our research interests and background.">
+<section class="page">
+  <div id="pi">{pi && <RaoProfile profile={pi} />}</div>
+  {groups.map(group=><section class="cv-section"><h2>{group.name}</h2><div class="member-grid">{group.members.map(member=><article>{member.data.photo && <img src={withBase(member.data.photo)} alt={member.data.name} loading="lazy" width="220" height="220" />}<h3>{member.data.name}</h3><p>{member.data.role}</p>{member.data.bio && <p>{member.data.bio}</p>}{member.data.email && <a href={'mailto:'+member.data.email}>Email ↗</a>}</article>)}</div></section>)}
+  <section class="application-note"><h2>Join our lab</h2><p>Interested in working with us? Explore our <a href={withBase('/positions/')}>open positions</a>.</p></section>
+</section>
 </BaseLayout>

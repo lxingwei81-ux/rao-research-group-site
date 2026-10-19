@@ -1,0 +1,9 @@
+---
+interface Props { authors: string }
+const parts = Astro.props.authors.split(/(\bZ\.\s*Rao\b|\b(?:Zhoulyu|Zhoulv) Rao\b|[#*]+)/g);
+---
+{parts.map(part => /^(Z\.\s*Rao|(?:Zhoulyu|Zhoulv) Rao)$/.test(part)
+  ? <strong>{part}</strong>
+  : /^[#*]+$/.test(part)
+    ? <sup>{part}</sup>
+    : part)}

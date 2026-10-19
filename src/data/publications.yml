@@ -1,252 +1,331 @@
+- id: neuromorphic-imager-2026
+  title: A neuromorphic imager based on a cascaded optoelectronic synapse
+  authors: Yuntao Lu#, Zhoulyu Rao#, Hyunseok Shim#, Young Min Song, Zhiyong Fan, Chuanfei Guo, and
+    Cunjiang Yu*
+  journal: Nature Electronics
+  year: 2026
+  volume: "9"
+  pages: 180–188
+  doi: 10.1038/s41928-025-01540-w
+  featured: true
+  research_area: Curvy & Neuromorphic Electronics
+  equal_contribution_note: "# Equal contribution"
 - id: bioprinted-cardiac-tissues-2025
   title: Bioprinted optoelectronically active cardiac tissues
-  authors: F. Ershad#, Z. Rao#, S. Maharajan#, et al.
+  authors: Faheem Ershad#, Zhoulyu Rao#, Sushila Maharajan#, Fernanda C. Paccola Mesquita, Junkyu Ha,
+    Lei Gonzalez, Tahir Haideri, Ernesto Curty da Costa, Angel Moctezuma-Ramirez, Yuqi Wang, Seonmin
+    Jang, Yuntao Lu, Shubham Patel, Xiaoyang Wang, Yifan Tao, Joshua Weygant, Carlos Ezio
+    Garciamendez-Mijares, Luis Carlos Orrantia Clark, Muhammad Zubair, Xiaojun Lance Lian,
+    Abdelmotagaly Elgalad, Jian Yang, Camila Hochman-Mendez, Yu Shrike Zhang*, and Cunjiang Yu*
   journal: Science Advances
   year: 2025
-  volume: "1"
+  volume: 11(4)
   pages: eadt7210
   featured: true
   research_area: Bioelectronics & Bio-optoelectronics
-  cover_image: /images/research/Slide1.JPG
   equal_contribution_note: "# Equal contribution"
+  doi: 10.1126/sciadv.adt7210
 - id: cardiac-stimulation-2024
   title: Ultrathin rubbery bio-optoelectronic stimulators for untethered cardiac stimulation
-  authors: Z. Rao, F. Ershad, Y. Guan, et al.
+  authors: Zhoulyu Rao, Faheem Ershad, Ying-Shi Guan, Fernanda C. Paccola Mesquita, Ernesto Curty da
+    Costa, Marco A. Morales-Garza, Angel Moctezuma-Ramirez, Bin Kan, Yuntao Lu, Shubham Patel,
+    Hyunseok Shim, Kuan Cheng, Wenjie Wu, Tahir Haideri, Xiaojun Lance Lian, Alamgir Karim, Jian
+    Yang, Abdelmotagaly Elgalad, Camila Hochman-Mendez, and Cunjiang Yu*
   journal: Science Advances
   year: 2024
-  volume: "10"
+  volume: 10(49)
   pages: eadq5061
   featured: true
   research_area: Bioelectronics & Bio-optoelectronics
-  cover_image: /images/research/Slide1.JPG
+  doi: 10.1126/sciadv.adq5061
 - id: active-resistive-sensing-2024
   title: A paradigm shift toward active resistive sensing driven by triboelectric nanogenerator
-  authors: J. Hong, Z. Rao, S. Duan, S. Xiang, X. Wei, Y. Xiao, Y. Chen, H. Sheng, J. Xia, W. Lei, C. Yu, Q. Shi, J. Wu
+  authors: Jianlong Hong, Zhoulyu Rao, Shengshun Duan, Shengxin Xiang, Xiao Wei, Yukun Xiao, Yuqi
+    Chen, Hai Sheng, Jun Xia, Wei Lei, Cunjiang Yu, Qiongfeng Shi*, and Jun Wu*
   journal: Nano Energy
   year: 2024
   volume: "131"
   pages: "110327"
   featured: false
   research_area: Rubbery & Soft Electronics
+  doi: 10.1016/j.nanoen.2024.110327
 - id: microprinting-curved-surfaces-2023
   title: Microprinting on curved surfaces with sugar
-  authors: Z. Rao, Y. Lu, Y. Liu, C. Yu
+  authors: Zhoulyu Rao, Yuntao Lu, Youdi Liu, and Cunjiang Yu*
   journal: Matter
   year: 2023
-  volume: "6(3)"
+  volume: 6(3)
   pages: 671-673
   featured: true
   research_area: Curvy & Neuromorphic Electronics
-  cover_image: /images/research/Slide3.JPG
+  doi: 10.1016/j.matt.2023.01.023
 - id: drawn-on-skin-emg-2023
-  title: Customizable, reconfigurable, and anatomically coordinated large-area, high-density electromyography from drawn-on-skin electrode arrays
-  authors: F. Ershad, M. Houston, S. Patel, L. Contreras, B. Koirala, Y. Lu, Z. Rao, et al.
+  title: Customizable, reconfigurable, and anatomically coordinated large-area, high-density
+    electromyography from drawn-on-skin electrode arrays
+  authors: Faheem Ershad, Michael Houston, Shubham Patel, Luis Contreras, Bikram Koirala, Yuntao Lu,
+    Zhoulyu Rao, Yang Liu, Nicholas Dias, Arturo Haces-Garcia, Weihang Zhu, Yingchun Zhang, and
+    Cunjiang Yu*
   journal: PNAS Nexus
   year: 2023
-  volume: "2(1)"
+  volume: 2(1)
   pages: pgac291
   featured: false
   research_area: Bioelectronics & Bio-optoelectronics
+  doi: 10.1093/pnasnexus/pgac291
 - id: elastic-electronics-2022
   title: Elastic electronics based on micromesh-structured rubbery semiconductor films
-  authors: Y. Guan, F. Ershad, Z. Rao, Z. Ke, E. Costa, Q. Xiang, Y. Lu, X. Wang, J. Mei, P. Vanderslice, C. Hochman-Mendez, C. Yu
+  authors: Ying-Shi Guan, Faheem Ershad, Zhoulyu Rao, Zhifan Ke, Ernesto Curty da Costa, Qian Xiang,
+    Yuntao Lu, Xu Wang, Jianguo Mei, Peter Vanderslice, Camila Hochman-Mendez, and Cunjiang Yu*
   journal: Nature Electronics
   year: 2022
-  volume: "5(12)"
+  volume: 5(12)
   pages: 881-892
   featured: true
   research_area: Rubbery & Soft Electronics
-  cover_image: /images/research/Slide2.JPG
+  doi: 10.1038/s41928-022-00874-z
 - id: cardiomyocyte-reprogramming-2022
   title: Direct Reprogramming of Cardiomyocytes into Cardiac Purkinje-like Cells
-  authors: N. Prodan, F. Ershad, A. Reyes-Alcaraz, L. Li, B. Mistretta, L. Gonzalez, Z. Rao, et al.
+  authors: Nicole Prodan, Faheem Ershad, Arfaxad Reyes-Alcaraz, Luge Li, Brandon Mistretta, Lei
+    Gonzalez, Zhoulyu Rao, Cunjiang Yu, Preethi H. Gunaratne, Na Li, Robert J. Schwartz, and Bradley
+    K. McConnell*
   journal: iScience
   year: 2022
-  volume: "25(11)"
+  volume: 25(11)
   pages: "105402"
   featured: false
   research_area: Bioelectronics & Bio-optoelectronics
+  doi: 10.1016/j.isci.2022.105402
 - id: drawn-on-skin-sensors-2022
   title: Drawn-on-Skin Sensors from Fully Biocompatible Inks toward High-Quality Electrophysiology
-  authors: S. Patel, F. Ershad, J. Lee, L. Chacon-Alberty, Y. Wang, M. A. Morales-Garza, et al., Z. Rao, et al.
+  authors: Shubham Patel#, Faheem Ershad#, Jimmy Lee, Lourdes Chacon-Alberty, Yifan Wang, Marco A.
+    Morales-Garza, Arturo Haces-Garcia, Seonmin Jang, Lei Gonzalez, Luis Contreras, Aman Agarwal,
+    Zhoulyu Rao, Grace Liu, Igor R. Efimov, Yu Shrike Zhang, Min Zhao, Roslyn Rivkah Isseroff,
+    Alamgir Karim, Abdelmotagaly Elgalad, Weihang Zhu, Xiaoyang Wu, and Cunjiang Yu*
   journal: Small
   year: 2022
   pages: "2107099"
   featured: false
   research_area: Bioelectronics & Bio-optoelectronics
+  doi: 10.1002/smll.202107099
+  equal_contribution_note: "# Equal contribution"
 - id: curvy-shape-adaptive-imagers-2021
   title: Curvy, shape-adaptive imagers based on printed optoelectronic pixels with a kirigami design
-  authors: Z. Rao#, Y. Lu#, Z. Li, et al.
+  authors: Zhoulyu Rao#, Yuntao Lu#, Zhengwei Li, Kyoseung Sim, Zhenqiang Ma, Jianliang Xiao, and
+    Cunjiang Yu*
   journal: Nature Electronics
   year: 2021
-  volume: "4(7)"
+  volume: 4(7)
   pages: 513-521
   featured: true
   research_area: Curvy & Neuromorphic Electronics
-  cover_image: /images/research/Slide3.JPG
   equal_contribution_note: "# Equal contribution"
+  doi: 10.1038/s41928-021-00600-1
 - id: polymer-rubbery-electronics-2021
   title: All-polymer based stretchable rubbery electronics and sensors
-  authors: Z. Rao, A. Thukral, P. Yang, Y. Lu, H. Shim, W. Wu, A. Karim, C. Yu
+  authors: Zhoulyu Rao, Anish Thukral, Pinyi Yang, Yuntao Lu, Hyunseok Shim, Wenjie Wu, Alamgir Karim,
+    and Cunjiang Yu*
   journal: Advanced Functional Materials
-  year: 2021
-  volume: "32(15)"
+  year: 2022
+  volume: 32(15)
   pages: "2111232"
   featured: true
   research_area: Rubbery & Soft Electronics
-  cover_image: /images/research/Slide2.JPG
+  doi: 10.1002/adfm.202111232
+  pdf_url: https://par.nsf.gov/servlets/purl/10391551
 - id: flexible-organic-solar-cells-2021
   title: Flexible organic solar cells for biomedical devices
-  authors: B. Kan, F. Ershad, Z. Rao, C. Yu
+  authors: Bin Kan, Faheem Ershad, Zhoulyu Rao, and Cunjiang Yu*
   journal: Nano Research
   year: 2021
   volume: "14"
   pages: 2891-2903
   featured: false
   research_area: Bioelectronics & Bio-optoelectronics
+  doi: 10.1007/s12274-021-3386-z
 - id: rubbery-synaptic-transistors-2021
-  title: Fully rubbery synaptic transistors made out of all-organic materials for elastic neurological electronic skin
-  authors: H. Shim, S. Jang, J. Jang, Z. Rao, J. Hong, K. Sim, C. Yu
+  title: Fully rubbery synaptic transistors made out of all-organic materials for elastic neurological
+    electronic skin
+  authors: Hyunseok Shim, Seonmin Jang, Jae Gyu Jang, Zhoulyu Rao, Jong-In Hong, Kyoseung Sim, and
+    Cunjiang Yu*
   journal: Nano Research
-  year: 2021
+  year: 2022
   volume: "15"
   pages: 758-764
   featured: false
   research_area: Rubbery & Soft Electronics
+  doi: 10.1007/s12274-021-3602-x
 - id: wireless-spinal-stimulation-2021
   title: A wireless spinal stimulation system for ventral activation of the rat cervical spinal cord
-  authors: M. K. Hogan, S. M. Barber, Z. Rao, B. R. Kondiles, M. Huang, W. J. Steele, C. Yu, P. J. Horner
+  authors: Matthew K. Hogan*, Sean M. Barber, Zhoulyu Rao, Bethany R. Kondiles, Meng Huang, William J.
+    Steele, Cunjiang Yu, and Philip J. Horner
   journal: Scientific Reports
   year: 2021
-  volume: "11(1)"
+  volume: 11(1)
   pages: "14900"
   featured: false
   research_area: Bioelectronics & Bio-optoelectronics
+  doi: 10.1038/s41598-021-94047-1
 - id: air-water-rubbery-nanofilm-2020
-  title: Air/water interfacial assembled rubbery semiconducting nanofilm for fully rubbery integrated electronics
-  authors: Y. Guan, A. Thukral, S. Zhang, K. Sim, X. Wang, Y. Zhang, F. Ershad, Z. Rao, et al.
+  title: Air/water interfacial assembled rubbery semiconducting nanofilm for fully rubbery integrated
+    electronics
+  authors: Ying-Shi Guan, Anish Thukral, Shun Zhang, Kyoseung Sim, Xu Wang, Yongcao Zhang, Faheem
+    Ershad, Zhoulyu Rao, Fengjiao Pan, Peng Wang, Jianliang Xiao, and Cunjiang Yu*
   journal: Science Advances
   year: 2020
-  volume: "6(38)"
+  volume: 6(38)
   pages: eabb3656
   featured: false
   research_area: Rubbery & Soft Electronics
+  doi: 10.1126/sciadv.abb3656
 - id: drawn-on-skin-electronics-2020
-  title: Ultra-conformal drawn-on-Skin electronics for multifunctional motion artifact-free sensing and point-of-care treatment
-  authors: F. Ershad, A. Thukral, J. Yue, P. Comeaux, Y. Lu, H. Shim, K. Sim, N. Kim, Z. Rao, et al.
+  title: Ultra-conformal drawn-on-Skin electronics for multifunctional motion artifact-free sensing
+    and point-of-care treatment
+  authors: Faheem Ershad, Anish Thukral, Jiping Yue, Phillip Comeaux, Yuntao Lu, Hyunseok Shim,
+    Kyoseung Sim, Nam-In Kim, Zhoulyu Rao, Ross Guevara, Luis Contreras, Fengjiao Pan, Yongcao
+    Zhang, Ying-Shi Guan, Pinyi Yang, Xu Wang, Peng Wang, Xiaoyang Wu, and Cunjiang Yu*
   journal: Nature Communications
   year: 2020
-  volume: "11(1)"
-  pages: 1-13
+  volume: 11(1)
+  pages: "3823"
   featured: false
   research_area: Bioelectronics & Bio-optoelectronics
+  doi: 10.1038/s41467-020-17619-1
 - id: gan-hemt-bending-2020
-  title: Modulation of the 2-dimensional electron gas channel in flexible AlGaN/GaN high-electron-mobility transistors by mechanical bending
-  authors: W. Wang, J. Chen, J. Lundh, S. Shervin, S. Oh, S. Pouladi, Z. Rao, J. Kim, M. Kwon, X. Li, S. Choi, J. Ryou
+  title: Modulation of the 2-dimensional electron gas channel in flexible AlGaN/GaN
+    high-electron-mobility transistors by mechanical bending
+  authors: Weijie Wang, Jie Chen, James Spencer Lundh, Shahab Shervin, Seung Kyu Oh, Sara Pouladi,
+    Zhoulyu Rao, Ja Yeon Kim, Min-Ki Kwon, Xiaohang Li, Sukwon Choi, and Jae-Hyun Ryou
   journal: Applied Physics Letters
   year: 2020
-  volume: "116(12)"
-  pages: "3501"
+  volume: 116(12)
+  pages: "123501"
   featured: false
   research_area: Rubbery & Soft Electronics
+  doi: 10.1063/1.5142546
 - id: epicardial-bioelectronic-patch-2020
-  title: An epicardial bioelectronic patch made from soft rubbery materials and capable of spatiotemporal mapping of electrophysiological activity
-  authors: K. Sim, F. Ershad, Y. Zhang, P. Yang, H. Shim, Z. Rao, Y. Lu, A. Thukral, A. Elgalad, et al.
+  title: An epicardial bioelectronic patch made from soft rubbery materials and capable of
+    spatiotemporal mapping of electrophysiological activity
+  authors: Kyoseung Sim#, Faheem Ershad#, Yongcao Zhang#, Pinyi Yang, Hyunseok Shim, Zhoulyu Rao,
+    Yuntao Lu, Anish Thukral, Abdelmotagaly Elgalad, Yutao Xi, Bozhi Tian, Doris A. Taylor, and
+    Cunjiang Yu*
   journal: Nature Electronics
   year: 2020
-  volume: "3(12)"
+  volume: 3(12)
   pages: 775-784
   featured: false
   research_area: Bioelectronics & Bio-optoelectronics
+  doi: 10.1038/s41928-020-00493-6
+  equal_contribution_note: "# Equal contribution"
 - id: soft-electronics-skin-2020
   title: "Soft electronics for the skin: from health monitors to human–machine interfaces"
-  authors: Z. Rao#, F. Ershad#, A. Almasri, L. Gonzalez, X. Wu, C. Yu
+  authors: Zhoulyu Rao#, Faheem Ershad#, Abdullah Almasri, Lei Gonzalez, Xiaoyang Wu, and Cunjiang Yu*
   journal: Advanced Materials Technologies
   year: 2020
-  volume: "5(9)"
+  volume: 5(9)
   pages: "2000233"
   featured: false
   research_area: Bioelectronics & Bio-optoelectronics
   equal_contribution_note: "# Equal contribution"
+  doi: 10.1002/admt.202000233
 - id: conformal-additive-stamp-printing-2019
-  title: Three-dimensional curvy electronics enabled by conformal additive stamp printing
-  authors: K. Sim, S. Chen, Z. Li, Z. Rao, J. Liu, Y. Lu, S. Jang, F. Ershad, J. Chen, J. Xiao, C. Yu
+  title: Three-dimensional curvy electronics created using conformal additive stamp printing
+  authors: Kyoseung Sim, Song Chen, Zhengwei Li, Zhoulyu Rao, Jingshen Liu, Yuntao Lu, Seonmin Jang,
+    Faheem Ershad, Ji Chen, Jianliang Xiao, and Cunjiang Yu*
   journal: Nature Electronics
   year: 2019
-  volume: "2(10)"
+  volume: 2(10)
   pages: 471-479
   featured: false
   research_area: Curvy & Neuromorphic Electronics
+  doi: 10.1038/s41928-019-0304-4
 - id: elastic-synaptic-transistors-2019
   title: Stretchable Elastic synaptic transistors for neurologically integrated soft engineering systems
-  authors: H. Shim, K. Sim, F. Ershad, P. Yang, A. Thukral, Z. Rao, H. Kim, Y. Liu, X. Wang, G. Gu, L. Gao, X. Wang, Y. Chai, C. Yu
+  authors: Hyunseok Shim, Kyoseung Sim, Faheem Ershad, Pinyi Yang, Anish Thukral, Zhoulyu Rao, Hae-Jin
+    Kim, Yanghui Liu, Xu Wang, Guoying Gu, Li Gao, Xinran Wang, Yang Chai, and Cunjiang Yu*
   journal: Science Advances
   year: 2019
-  volume: "5(10)"
+  volume: 5(10)
   pages: eaax4961
   featured: false
   research_area: Rubbery & Soft Electronics
+  doi: 10.1126/sciadv.aax4961
 - id: fully-rubbery-integrated-electronics-2019
-  title: Fully rubbery integrated electronics from high effective mobility intrinsically stretchable semiconductors
-  authors: K. Sim, Z. Rao, H. Kim, A. Thukral, H. Shim, C. Yu
+  title: Fully rubbery integrated electronics from high effective mobility intrinsically stretchable
+    semiconductors
+  authors: Kyoseung Sim, Zhoulyu Rao, Hae-Jin Kim, Anish Thukral, Hyunseok Shim, and Cunjiang Yu*
   journal: Science Advances
   year: 2019
-  volume: "5(2)"
+  volume: 5(2)
   pages: eaav5749
   featured: false
   research_area: Rubbery & Soft Electronics
+  doi: 10.1126/sciadv.aav5749
 - id: rubbery-electronics-elastomeric-2019
   title: Rubbery electronics fully made of stretchable elastomeric electronic materials
-  authors: K. Sim, Z. Rao, F. Ershad, C. Yu
+  authors: Kyoseung Sim, Zhoulyu Rao, Faheem Ershad, and Cunjiang Yu*
   journal: Advanced Materials
-  year: 2019
-  volume: "32(15)"
+  year: 2020
+  volume: 32(15)
   pages: "1902417"
   featured: false
   research_area: Rubbery & Soft Electronics
+  doi: 10.1002/adma.201902417
 - id: soft-unnoticeable-electronics-2019
-  title: Metal oxide semiconductor nano membrane based soft unnoticeable multifunctional electronics for wearable human machine interface
-  authors: K. Sim, Z. Rao, Z. Zhou, J. Lei, A. Thukral, J. Chen, Q. Huang, J. Xiao, C. Yu
+  title: Metal oxide semiconductor nanomembrane–based soft unnoticeable multifunctional electronics
+    for wearable human-machine interfaces
+  authors: Kyoseung Sim, Zhoulyu Rao, Zhanan Zou, Faheem Ershad, Jianming Lei, Anish Thukral, Jie
+    Chen, Qing-An Huang, Jianliang Xiao, and Cunjiang Yu*
   journal: Science Advances
   year: 2019
-  volume: "5(8)"
+  volume: 5(8)
   pages: eaav9653
   featured: false
   research_area: Rubbery & Soft Electronics
+  doi: 10.1126/sciadv.aav9653
 - id: curvy-microprobe-arrays-2018
-  title: Curvy surface conformal ultra-thin transfer printed Si optoelectronic penetrating microprobe arrays
-  authors: K. Sim, Z. Rao, Y. Li, D. Yang, C. Yu
+  title: Curvy surface conformal ultra-thin transfer printed Si optoelectronic penetrating microprobe
+    arrays
+  authors: Kyoseung Sim, Zhoulyu Rao, Yanbin Li, Dong Yang, and Cunjiang Yu*
   journal: npj Flexible Electronics
   year: 2018
-  volume: "2(1)"
-  pages: "1"
+  volume: 2(1)
+  pages: "2"
   featured: false
   research_area: Curvy & Neuromorphic Electronics
+  doi: 10.1038/s41528-017-0015-8
 - id: soft-robots-2018
   title: Soft ultrathin electronics innervated adaptive fully soft robots
-  authors: C. Wang, K. Sim, J. Chen, H. Kim, Z. Rao, Y. Li, W. Chen, J. Song, R. Verduzco, C. Yu
+  authors: Chengjun Wang#, Kyoseung Sim#, Jin Chen, Hojin Kim, Zhoulyu Rao, Yuhang Li, Weiqiu Chen,
+    Jizhou Song, Rafael Verduzco, and Cunjiang Yu*
   journal: Advanced Materials
   year: 2018
-  volume: "30(13)"
+  volume: 30(13)
   pages: "1706695"
   featured: false
   research_area: Rubbery & Soft Electronics
+  doi: 10.1002/adma.201706695
+  equal_contribution_note: "# Equal contribution"
 - id: soft-neural-interfaces-2018
-  title: Soft ultrathin silicon electronics for soft neural interfaces
-  authors: A. Thukral, F. Ershad, N. Enan, Z. Rao, C. Yu
+  title: "Soft Ultrathin Silicon Electronics for Soft Neural Interfaces: A Review of Recent Advances
+    of Soft Neural Interfaces Based on Ultrathin Silicon"
+  authors: Anish Thukral, Faheem Ershad, Nada Enan, Zhoulyu Rao, and Cunjiang Yu*
   journal: IEEE Nanotechnology Magazine
   year: 2018
-  volume: "12(1)"
+  volume: 12(1)
   pages: 21-34
   featured: false
   research_area: Bioelectronics & Bio-optoelectronics
+  doi: 10.1109/mnano.2017.2781290
 - id: solar-catalytic-hydrogenation-2015
-  title: Efficient coupling of solar energy to catalytic hydrogenation by using well-designed palladium nanostructures
-  authors: R. Long#, Z. Rao#, K. Mao, Y. Li, C. Zhang, Q. Liu, C. Wang, Z. Li, X. Wu, Y. Xiong
+  title: Efficient coupling of solar energy to catalytic hydrogenation by using well-designed
+    palladium nanostructures
+  authors: Ran Long#, Zhoulv Rao#, Keke Mao, Yu Li, Chao Zhang, Qiliang Liu, Chengming Wang, Zhi-Yuan
+    Li, Xiaojun Wu, and Yujie Xiong*
   journal: Angewandte Chemie International Edition
   year: 2015
-  volume: "127(8)"
-  pages: 2455-2460
+  volume: 54(8)
+  pages: 2425-2430
   featured: false
   research_area: Rubbery & Soft Electronics
   equal_contribution_note: "# Equal contribution"
+  doi: 10.1002/anie.201407785

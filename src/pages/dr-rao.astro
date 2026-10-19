@@ -1,15 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import RaoProfile from '../components/RaoProfile.astro';
-
-const people = (await getCollection('people')).filter((person) => person.data.published);
-const profile = people.find((person) => person.data.group === 'Principal Investigator');
-const toBeAdded = 'To be added.';
+import { withBase } from '../lib/paths';
+return Astro.redirect(withBase('/people/#pi'), 301);
 ---
-
-<BaseLayout title="Dr. Rao" description="Profile of Prof. Zhoulyu Rao.">
-  <section class="page">
-    {profile ? <RaoProfile profile={profile} /> : <p>{toBeAdded}</p>}
-  </section>
-</BaseLayout>

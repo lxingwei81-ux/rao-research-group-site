@@ -1,7 +1,6 @@
 media:
   input: public/uploads
   output: /uploads
-
 content:
   - name: site_settings
     label: Site settings
@@ -43,13 +42,33 @@ content:
       - name: official_logo
         label: Approved CityUHK logo asset
         type: image
+      - name: department_logo
+        label: Homepage department logo
+        type: image
       - name: contact_email
         label: Contact email
         type: string
       - name: address
         label: Postal address
         type: text
-
+      - name: social_image
+        label: Social sharing image (1200 × 630)
+        type: image
+      - name: office
+        label: Office
+        type: string
+      - name: phone
+        label: Phone
+        type: string
+      - name: faculty_url
+        label: Official faculty profile URL
+        type: string
+      - name: scholar_url
+        label: Verified Google Scholar profile URL
+        type: string
+      - name: orcid_url
+        label: ORCID URL
+        type: string
   - name: research
     label: Research themes
     type: collection
@@ -96,7 +115,6 @@ content:
         default: 99
       - name: body
         type: rich-text
-
   - name: publications
     label: Publications
     type: file
@@ -112,6 +130,7 @@ content:
         type: string
         required: true
       - name: authors
+        label: Full author list (published order)
         type: text
         required: true
       - name: journal
@@ -139,7 +158,12 @@ content:
         type: image
       - name: equal_contribution_note
         type: string
-
+      - name: pdf_url
+        label: Authorized PDF URL or /uploads/ path
+        type: string
+      - name: image_alt
+        label: Publication image description
+        type: string
   - name: people
     label: People
     type: collection
@@ -159,7 +183,13 @@ content:
         required: true
       - name: group
         type: select
-        options: [Principal Investigator, Postdoctoral Fellows, PhD Students, Research Staff, Visiting Researchers, Alumni]
+        options:
+          - Principal Investigator
+          - Postdoctoral Fellows
+          - PhD Students
+          - Research Staff
+          - Visiting Researchers
+          - Alumni
         required: true
       - name: photo
         type: image
@@ -210,7 +240,6 @@ content:
         default: false
       - name: body
         type: rich-text
-
   - name: news
     label: News
     type: collection
@@ -249,7 +278,6 @@ content:
         default: false
       - name: body
         type: rich-text
-
   - name: positions
     label: Positions
     type: file
@@ -282,7 +310,6 @@ content:
       - name: published
         type: boolean
         default: false
-
 settings:
   content:
     merge: true

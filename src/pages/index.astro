@@ -1,62 +1,68 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { publications, site } from '../lib/data';
+import { publications, positions, site } from '../lib/data';
 import { withBase } from '../lib/paths';
 
 const research = (await getCollection('research')).filter((item) => item.data.published).sort((a, b) => a.data.order - b.data.order);
-const news = (await getCollection('news')).filter((item) => item.data.published).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 4);
-const selectedPublications = publications.filter((publication) => publication.featured).slice(0, 5);
+const featuredResearch = research.find((item) => item.id === 'curvy-electronics');
+const news = (await getCollection('news')).filter((item) => item.data.published).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+const highlights = publications.filter((item) => item.featured).slice(0, 4);
 ---
 
-<BaseLayout description={site.lab_description || undefined}>
-  <section class="page">
-    <div class="home-layout">
-      <div>
-        <h1>Rao Research Group</h1>
-        <p class="lead">{site.lab_description}</p>
-        <p>We work at the intersection of functional materials chemistry, flexible electronics and bioengineering. The group develops bio-integrated electronic systems for personalized medicine, wearable health monitoring and human-machine interfaces.</p>
-        <p>Additional group information, photographs and laboratory details will be added as the group website develops.</p>
-      </div>
-      <figure class="home-photo">
-        <img src={withBase('/images/research/Slide1.JPG')} alt="Representative research image" />
-        <figcaption>Representative research image. Final laboratory or group photo to be added.</figcaption>
-      </figure>
+<BaseLayout description={site.lab_description}>
+  <section class="page home-intro">
+    <div class="home-intro__main">
+      <h1>Rao Research Group</h1>
+      <p class="lead">{site.lab_tagline}</p>
+      <p class="home-description">{site.lab_description}</p>
+      <p class="home-links">
+        <a href={withBase('/research/')}>Research</a>
+        <a href={withBase('/people/')}>People</a>
+        {positions.length > 0 && <a href={withBase('/positions/')}>Open positions</a>}
+      </p>
     </div>
+    <aside class="home-institution" aria-label="University affiliation">
+      {site.department_logo && <a href={site.department_url || site.institution_url}><img src={withBase(site.department_logo)} alt={`${site.department}, ${site.institution}`} width="711" height="159" /></a>}
+      <p class="home-institution__department">{site.department}</p>
+      <p>{site.institution}<br />Kowloon, Hong Kong</p>
+      {site.department_url && <a href={site.department_url}>Visit the department ↗</a>}
+    </aside>
   </section>
 
-  <section class="page page--compact">
-    <h2>News</h2>
-    {news.length > 0 ? (
-      <ul class="news-list">
-        {news.map((item) => (
-          <li>
-            <time datetime={item.data.date.toISOString()}>{item.data.date.toISOString().slice(0, 10)}</time>
-            <a href={withBase(item.data.internal_url || '/news/')}>{item.data.title}</a>
-          </li>
-        ))}
-      </ul>
-    ) : <p>To be added.</p>}
-  </section>
+  {research.length > 0 && <section class="page home-section" aria-labelledby="research-title">
+    <div class="section-heading"><h2 id="research-title">Research</h2><a href={withBase('/research/')}>View all research</a></div>
+    <div class="home-research">
+      {featuredResearch?.data.image && <figure class="home-research__figure">
+          <a class="home-research__image" href={featuredResearch.data.image_source_url} aria-label="View our curvy neuromorphic imager in Nature Electronics">
+            <img src={withBase(featuredResearch.data.image)} alt={featuredResearch.data.image_alt} width="1766" height="1487" decoding="async" />
+          </a>
+        </figure>}
+      <div class="home-research__themes">{research.map((item) => <article>
+        <h3><a href={withBase('/research/#' + item.id)}>{item.data.title}</a></h3>
+        <p>{item.data.short_description}</p>
+      </article>)}</div>
+    </div>
+  </section>}
 
-  <section class="page page--compact">
-    <h2>Research</h2>
-    <ul class="plain-list">
-      {research.map((item) => <li><a href={withBase(`/research/#${item.id}`)}>{item.data.title}</a>: {item.data.short_description}</li>)}
-    </ul>
-  </section>
-
-  <section class="page page--compact">
-    <h2>Selected Publications</h2>
-    <ol class="publication-list">
-      {selectedPublications.map((publication) => (
-        <li>
-          <span class="publication-title">{publication.title}</span>
-          <span>{publication.authors}</span>
-          <span>{publication.journal}, {publication.year}.</span>
-        </li>
-      ))}
+  {highlights.length > 0 && <section class="page home-section" aria-labelledby="publications-title">
+    <div class="section-heading"><h2 id="publications-title">Selected publications</h2><a href={withBase('/publications/')}>All publications</a></div>
+    <ol class="home-publications">
+      {highlights.map((publication) => <li>
+        <a href={publication.doi ? 'https://doi.org/' + publication.doi : withBase('/publications/#' + publication.id)}>{publication.title}</a>
+        <span>{publication.journal}, {publication.year}</span>
+      </li>)}
     </ol>
-    <p><a href={withBase('/publications/')}>More publications</a></p>
-  </section>
+  </section>}
+
+  {news.length > 0 && <section class="page home-section" aria-labelledby="news-title">
+    <div class="section-heading"><h2 id="news-title">News</h2><a href={withBase('/news/')}>All news</a></div>
+    <ul class="home-news">
+      {news.map((item) => <li>
+        <time datetime={item.data.date.toISOString()}>{item.data.date.toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' })}</time>
+        <a href={item.data.external_url || withBase(item.data.internal_url || '/news/')}>{item.data.title}</a>
+      </li>)}
+    </ul>
+  </section>}
+
 </BaseLayout>

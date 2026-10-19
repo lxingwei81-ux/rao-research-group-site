@@ -1,16 +1,10 @@
 ---
 import { currentYear, site } from '../lib/data';
 const labName = site.lab_name || site.site_name;
+const profiles = [{label:'CityUHK faculty profile',url:site.faculty_url},{label:'Google Scholar',url:site.scholar_url},{label:'ORCID',url:site.orcid_url}].filter(p=>p.url);
 ---
-
-<footer class="site-footer">
-  <div class="container">
-    <div>
-      {labName && <p class="site-footer__name">{labName}</p>}
-      <p>{site.department}<br />{site.institution}</p>
-      {site.address && <p>{site.address}</p>}
-      {site.contact_email && <a href={`mailto:${site.contact_email}`}>{site.contact_email}</a>}
-    </div>
-    <p class="site-footer__bottom">© {currentYear} {labName || 'Zhoulyu Rao Research Group'}.</p>
-  </div>
-</footer>
+<footer class="site-footer"><div class="container">
+  <div class="footer-grid"><div><p class="site-footer__name">{labName}</p><p><a href={site.department_url || site.institution_url}>{site.department}</a><br /><a href={site.institution_url}>{site.institution}</a></p><ul class="footer-links">{profiles.map(p=><li><a href={p.url}>{p.label} ↗</a></li>)}</ul></div>
+  <div><p class="site-footer__name">Get in touch</p>{site.office && <p>Office: {site.office}</p>}{site.address && <p>{site.address}</p>}{site.phone && <p><a href={'tel:'+site.phone.replace(/[^+\d]/g,'')}>{site.phone}</a></p>}{site.contact_email && <a href={'mailto:'+site.contact_email}>{site.contact_email}</a>}</div></div>
+  <div class="site-footer__bottom"><span>© {currentYear} {labName}.</span><ul class="footer-links">{site.footer_links.map(link=><li><a href={link.url}>{link.label}</a></li>)}</ul></div>
+</div></footer>

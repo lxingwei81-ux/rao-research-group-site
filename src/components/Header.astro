@@ -5,11 +5,10 @@ import { withBase } from '../lib/paths';
 const currentPath = Astro.url.pathname;
 const navigation = [
   { label: 'Home', href: '/' },
-  { label: 'Dr. Rao', href: '/dr-rao/' },
   { label: 'Research', href: '/research/' },
   { label: 'People', href: '/people/' },
   { label: 'Publications', href: '/publications/' },
-  { label: 'Positions', href: '/positions/' },
+  { label: 'Join Us', href: '/positions/' },
   { label: 'News', href: '/news/' }
 ].map((item) => ({ ...item, href: withBase(item.href) }));
 const labName = site.lab_name || site.site_name;

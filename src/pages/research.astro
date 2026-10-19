@@ -8,40 +8,23 @@ const research = (await getCollection('research')).filter((item) => item.data.pu
 const publicationById = new Map(publications.map((publication) => [publication.id, publication]));
 ---
 
-<BaseLayout title="Research" description="Research areas of the Rao Research Group.">
+<BaseLayout title="Research" description="Explore our work in bioelectronics, stretchable materials and shape-adaptive optoelectronic systems.">
   <section class="page">
     <h1>Research</h1>
-    <p class="lead">The group focuses on soft, bio-integrated electronic systems and the materials chemistry that enables them.</p>
+    <p class="lead">Our work brings together materials chemistry, soft electronics and bioengineering.</p>
 
     {research.map((item) => {
       const representativePublications = item.data.representative_publications.map((id) => publicationById.get(id)).filter(Boolean);
-      return (
-        <article class="research-entry" id={item.id}>
-          {item.data.image && <img src={withBase(item.data.image)} alt="" loading="lazy" />}
-          <div>
-            <h2>{item.data.title}</h2>
-            <p>{item.data.short_description}</p>
-            <dl>
-              <dt>Question</dt>
-              <dd>{item.data.question || 'To be added.'}</dd>
-              <dt>Approach</dt>
-              <dd>{item.data.approach || 'To be added.'}</dd>
-              <dt>Materials and devices</dt>
-              <dd>{item.data.materials_devices || 'To be added.'}</dd>
-              <dt>Application</dt>
-              <dd>{item.data.application || 'To be added.'}</dd>
-            </dl>
-            {representativePublications.length > 0 && (
-              <div>
-                <h3>Representative publications</h3>
-                <ul class="plain-list">
-                  {representativePublications.map((publication: any) => <li><a href={withBase(`/publications/#${publication.id}`)}>{publication.title}</a> ({publication.year})</li>)}
-                </ul>
-              </div>
-            )}
-          </div>
-        </article>
-      );
+      return <article class="research-entry" id={item.id}>
+        <div>
+          <h2>{item.data.title}</h2>
+          <p>{item.data.short_description}</p>
+          {representativePublications.length > 0 && <div class="research-publications">
+            <h3>Related publications</h3>
+            <ul>{representativePublications.map((publication: any) => <li><a href={withBase('/publications/#' + publication.id)}>{publication.title}</a> ({publication.year})</li>)}</ul>
+          </div>}
+        </div>
+      </article>;
     })}
   </section>
 </BaseLayout>

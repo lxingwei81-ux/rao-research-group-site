@@ -8,12 +8,19 @@ export interface SiteConfig {
   lab_name?: string;
   lab_tagline?: string;
   lab_description?: string;
+  social_image?: string;
+  office?: string;
+  phone?: string;
+  faculty_url?: string;
+  scholar_url?: string;
+  orcid_url?: string;
   site_url: string;
   department: string;
   institution: string;
   institution_url: string;
   department_url?: string;
   official_logo?: string;
+  department_logo?: string;
   contact_email?: string;
   address?: string;
   social_links?: { label: string; url: string }[];
@@ -33,6 +40,8 @@ export interface Publication {
   featured?: boolean;
   research_area?: string;
   cover_image?: string;
+  image_alt?: string;
+  pdf_url?: string;
   equal_contribution_note?: string;
 }
 
@@ -54,7 +63,3 @@ export const publications = (parse(publicationsSource) as Publication[]).sort((a
 export const positions = (parse(positionsSource) as Position[]).filter((position) => position.published);
 
 export const currentYear = new Date().getFullYear();
-
-export function publicationCitation(publication: Publication) {
-  return [publication.journal, publication.volume, publication.pages].filter(Boolean).join(', ');
-}

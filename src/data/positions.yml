@@ -1,8 +1,8 @@
 - position: "Postdoctoral Fellow"
   status: "Recruiting"
   start: "Open until filled"
-  intro: "The Rao Research Group at the Department of Chemistry, City University of Hong Kong, is recruiting postdoctoral fellows."
-  description: "The group develops flexible bio-integrated electronic systems for personalized medicine, wearable health monitoring and human-machine interfaces."
+  intro: "We are recruiting postdoctoral fellows to join our lab in the Department of Chemistry at City University of Hong Kong."
+  description: "In our lab, we develop flexible bio-integrated electronic systems for personalized medicine, wearable health monitoring and human-machine interfaces."
   requirements:
     - "Background in chemistry, materials science, bioengineering or related fields."
     - "Research experience in polymer synthesis, micro/nanofabrication, electrochemistry, biointerfaces, soft robotics or electrophysiology is welcome."
@@ -10,15 +10,15 @@
     - "Cover letter: briefly describe your research interests and career plans."
     - "CV: include a complete publication list."
     - "Contact information for 2-3 academic referees."
-  application_method: "Please combine all application materials into a single PDF and email it to zhoulrao@cityu.edu.hk. Email subject: [Application - Position Title] - Your Name."
+  application_method: "Please combine all application materials into a single PDF and email it to zhoulrao@cityu.edu.hk. Email subject: Application for [Position] - [Your Name] - [Current Institution]."
   contact_email: "zhoulrao@cityu.edu.hk"
   published: true
 
 - position: "Ph.D. Student"
   status: "2027 Fall Entry"
   start: "Fall 2027"
-  intro: "The group is recruiting Ph.D. students for Fall 2027 entry."
-  description: "Ph.D. students will work across flexible and stretchable electronic materials, bioelectronic interfaces, interface chemistry and adaptive wireless bioelectronic systems."
+  intro: "We are recruiting Ph.D. students to join our lab in Fall 2027."
+  description: "You will work with us on flexible and stretchable electronic materials, bioelectronic interfaces, interface chemistry and adaptive wireless bioelectronic systems."
   requirements:
     - "Hong Kong, Macau or overseas institutions: GPA >= 3.5/4.0 or first-class honours."
     - "Mainland China and Taiwan institutions: average score >= 85."
@@ -26,21 +26,21 @@
   application_documents:
     - "Cover letter: briefly describe your research interests and career plans."
     - "CV: include a complete publication list if applicable."
-  application_method: "Please combine all application materials into a single PDF and email it to zhoulrao@cityu.edu.hk. Email subject: [Application - Position Title] - Your Name."
+  application_method: "Please combine all application materials into a single PDF and email it to zhoulrao@cityu.edu.hk. Email subject: Application for [Position] - [Your Name] - [Current Institution]."
   contact_email: "zhoulrao@cityu.edu.hk"
   published: true
 
 - position: "Research Assistant"
   status: "Recruiting"
   start: "Available to start any time"
-  intro: "The group is recruiting research assistants who can start at any time."
-  description: "Research assistants will support materials preparation, device fabrication, characterization and bio-integrated electronic system experiments."
+  intro: "We welcome research assistants to join our lab, with flexible start dates."
+  description: "You will work with us on materials preparation, device fabrication, characterization and experiments with bio-integrated electronic systems."
   requirements:
     - "Background in chemistry, materials science, bioengineering or related fields."
     - "Research experience in polymer synthesis, micro/nanofabrication, electrochemistry, biointerfaces, soft robotics or electrophysiology is welcome."
   application_documents:
     - "Cover letter: briefly describe your research interests and career plans."
     - "CV: include relevant research experience and publications if applicable."
-  application_method: "Please combine all application materials into a single PDF and email it to zhoulrao@cityu.edu.hk. Email subject: [Application - Position Title] - Your Name."
+  application_method: "Please combine all application materials into a single PDF and email it to zhoulrao@cityu.edu.hk. Email subject: Application for [Position] - [Your Name] - [Current Institution]."
   contact_email: "zhoulrao@cityu.edu.hk"
   published: true

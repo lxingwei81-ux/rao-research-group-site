@@ -58,6 +58,8 @@ Only records with `published: true` appear on the public website. Empty categori
 
 In Pages CMS, open **Publications** and add an entry with a unique, URL-safe `id`, the title, authors, journal and year. Add a DOI or publisher URL when it is available; the publication card will show its external link automatically. Set **featured** to show it in the selected-publications area and add a research area for filtering.
 
+List every author in the publisher's order using their published full names, separated by commas with `and` before the final author. Do not use `et al.` or shorten given names to initials. Preserve middle initials used in the original publication. Add `#` for verified equal contribution and `*` for verified corresponding authors; these render as superscripts. Zhoulyu Rao's name is emphasized automatically. The author verification sources are recorded in [PUBLICATION_SOURCES.md](PUBLICATION_SOURCES.md).
+
 ## Add a member
 
 In Pages CMS, open **People**, create a Markdown entry, complete name, role and group, then set **published** to true. Add a photo only after its use has been approved. The site hides member categories without any published profiles.
@@ -68,12 +70,26 @@ In **News**, create a new item with date, title and summary. Set **published** t
 
 ## Replace images and the CityUHK logo
 
-Upload approved research images through Pages CMS. Use their `/uploads/...` path in the relevant image field. The three files in `public/images/research/` are temporary images migrated from the prior site.
+Upload approved research images through Pages CMS. Use their `/uploads/...` path in the relevant image field. Optimized WebP research images are derived from the existing JPG source assets. See IMAGE_CHECKLIST.md for current asset status.
 
-The header does not embed an unofficial CityUHK logo. After receiving an approved asset from CityUHK's brand materials, upload it and set `official_logo` in **Site settings**. The header will then render it and link to the CityUHK homepage.
+The header uses the horizontal SVG served by CityUHK's official template. The source is recorded in IMAGE_CHECKLIST.md. Replace it through `official_logo` in Site settings when needed.
 
 The style token `#981B49` is drawn from the university's publicly served CMYK logo asset. Before formal launch, verify all logo use, typography and colour treatment against the current CityUHK Corporate Identity Manual and the Department's sub-site requirements.
 
 ## Legacy material
 
 The previous personal website's four HTML files are in `legacy/` for reference. They are not used by the Astro site. Its duplicated CSS, fixed A4 widths and hard-coded navigation are intentionally not carried forward.
+
+## Quality checks and local preview
+
+`pnpm build` validates publication IDs, DOI/URL formats, local image/PDF assets and research-to-publication references before compiling. CMS edits are checked by the same build.
+
+For browser checks, run `pnpm preview --host 127.0.0.1 --port 4322` after building, then `pnpm test:smoke` in another terminal. Tests use Microsoft Edge on Windows; on other platforms install Chromium with `pnpm exec playwright install chromium`. Override the browser with `BROWSER_CHANNEL` and the full site base URL with `TEST_URL`.
+
+If the browser cannot capture full-page screenshots, set `SCREENSHOT_MODE=viewport`, or `SCREENSHOT_MODE=none` to run checks separately from visual review. This changes only screenshot capture; the same page, overflow, image, navigation and filter checks still run.
+
+For the GitHub Pages path used by this repository, run `pnpm build:preview`. Then set `BASE_PATH=/rao-research-group-site/` when starting `pnpm preview`, and set `TEST_URL=http://127.0.0.1:4323/rao-research-group-site` for the browser checks. The preview build keeps CSS and image URLs under the same base path as the site.
+
+`scripts/prepare-assets.mjs` regenerates the research WebP variants and social preview from the committed originals using Astro's Sharp dependency.
+
+See [OPTIMIZATION_NOTES.md](OPTIMIZATION_NOTES.md) for completed changes, content sources and remaining editorial items.
